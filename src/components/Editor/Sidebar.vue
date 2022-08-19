@@ -82,11 +82,10 @@ aside {
   }
 
   .dot {
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
     margin-right: 8px;
     border-radius: 50%;
-    display: inline-block;
 
     &.green {
       background-color: #32C37E;
@@ -106,6 +105,9 @@ aside {
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   ul {
