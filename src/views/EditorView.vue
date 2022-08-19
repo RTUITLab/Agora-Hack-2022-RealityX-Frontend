@@ -1,15 +1,21 @@
 <template>
   <main>
     <sidebar></sidebar>
+    <div style="padding-left: 360px">
+      <editor-header></editor-header>
+    </div>
   </main>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Sidebar from '@/components/Editor/Sidebar.vue'
+import EditorHeader from '@/components/Editor/EditorHeader.vue'
 
 @Component({
-  components: { Sidebar }
+  components: {
+    Sidebar, EditorHeader
+  }
 })
 export default class EditorView extends Vue {
   projectName = ''

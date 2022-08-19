@@ -45,8 +45,11 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 
+@Component({
+  name: 'sidebar'
+})
 export default class Sidebar extends Vue {}
 </script>
 
@@ -70,7 +73,7 @@ aside {
   position: fixed;
   overflow-y: auto;
 
-  border-right: 2px solid #E2E8F0;
+  border-right: 1px solid #E2E8F0;
   box-sizing: border-box;
 
   img {
