@@ -6,7 +6,7 @@
         <h2>Авторизация</h2>
         <input v-model="name" type="text" placeholder="Логин">
         <input v-model="pass" type="text" placeholder="Пароль">
-        <button type="button" class="blue-btn" style="margin-top: 28px" @click="login">Войти</button>
+        <button type="button" class="blue-btn" style="margin-top: 32px" @click="login">Войти</button>
       </div>
     </div>
     <div class="login-form_back">
@@ -55,7 +55,7 @@ export default class LoginView extends Vue {
       }
 
       h2 {
-        margin: 4px 0 20px;
+        margin: 4px 0 24px;
         text-transform: uppercase;
         color: #19171D80;
 

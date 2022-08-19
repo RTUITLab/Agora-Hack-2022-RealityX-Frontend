@@ -3,14 +3,22 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import IUser from '@/store/User'
+import EditorView from '@/views/EditorView.vue'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    redirect: '/projects'
+  },
+  {
+    path: '/projects',
+    redirect: '/projects/example'
+  },
+  {
+    path: '/projects/:name',
+    component: EditorView
   },
   {
     path: '/login',
