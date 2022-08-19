@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
-import IUser from '@/store/User'
 import EditorView from '@/views/EditorView.vue'
 
 Vue.use(VueRouter)
