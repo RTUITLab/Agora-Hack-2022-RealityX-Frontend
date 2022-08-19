@@ -2,7 +2,7 @@
   <div class="login-layout">
     <div class="login-form_col">
       <div class="login-form_box" @keydown.enter="login">
-        <img src="../assets/Logo0.svg">
+        <img alt="Логотип конструктора" src="../assets/Logo0.svg">
         <h2>Авторизация</h2>
         <input v-model="name" type="text" placeholder="Логин">
         <input v-model="pass" type="text" placeholder="Пароль">
