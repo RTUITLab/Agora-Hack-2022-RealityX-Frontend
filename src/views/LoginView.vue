@@ -9,7 +9,11 @@
         <button type="button" class="blue-btn" style="margin-top: 28px" @click="login">Войти</button>
       </div>
     </div>
-    <div class="login-form_img">Image</div>
+    <div class="login-form_back">
+      <div class="login-form_wrapper">
+        <img src="../assets/Example.png" alt="Интерфейс системы">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,7 +42,7 @@ export default class LoginView extends Vue {
 
   .login-form_col {
     min-width: 540px;
-    width: 33%;
+    width: 66%;
 
     align-self: center;
 
@@ -62,9 +66,24 @@ export default class LoginView extends Vue {
     }
   }
 
-  .login-form_img {
+  .login-form_back {
     width: 100%;
-    background-color: #3870FF;
+    height: 100%;
+    background: #3870FF url("../assets/circles.svg") no-repeat bottom;
+
+    .login-form_wrapper {
+      display: flex;
+      height: 100%;
+
+      img {
+        height: 80vh;
+        margin: auto 0 auto auto;
+        //position: relative;
+
+        //right: 0;
+
+      }
+    }
   }
 }
 </style>
