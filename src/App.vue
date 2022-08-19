@@ -1,27 +1,65 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Intro, sans-serif;
+@import "assets/fonts/inter/inter.css";
+html {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
-nav {
-  padding: 30px;
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+#app {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
+input[type=text] {
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px;
+  border: 1px solid #19171D1A;
+  border-radius: 12px;
+  box-sizing: border-box;
+
+  color: #19171D;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+
+  outline: none;
+
+  transition: 0.1s;
+
+  &:focus {
+    border-color: #a7b7ff8a;
+  }
+}
+
+button {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  &.blue-btn {
+    background-color: #3870FF;
+    color: white;
+
+    &:active {
+      background-color: #759bff;
     }
   }
 }
