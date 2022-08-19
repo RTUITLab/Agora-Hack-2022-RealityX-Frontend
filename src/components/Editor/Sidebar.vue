@@ -82,8 +82,8 @@ aside {
   }
 
   .dot {
-    height: 10px;
-    width: 10px;
+    height: 9px;
+    width: 9px;
     margin-right: 8px;
     border-radius: 50%;
 
@@ -112,7 +112,7 @@ aside {
 
   ul {
     list-style: none;
-    margin: 8px 5px;
+    margin: 8px 4px;
     padding: 0 8px;
     border-left: 1px dashed #718096;
 
