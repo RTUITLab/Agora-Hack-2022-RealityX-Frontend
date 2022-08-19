@@ -6,6 +6,11 @@
 
 <style lang="scss">
 @import "assets/fonts/inter/inter.css";
+* {
+  font-family: 'Inter', sans-serif;
+  color: #19171D;
+}
+
 html {
   height: 100vh;
   padding: 0;

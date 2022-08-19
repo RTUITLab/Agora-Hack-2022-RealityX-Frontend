@@ -1,11 +1,16 @@
 <template>
-  <div>sdf</div>
+  <main>
+    <sidebar></sidebar>
+  </main>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import Sidebar from '@/components/Editor/Sidebar.vue'
 
-@Component({})
+@Component({
+  components: { Sidebar }
+})
 export default class EditorView extends Vue {
   projectName = ''
 
