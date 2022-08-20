@@ -12,5 +12,5 @@ export default interface IWidget {
   id: string,
   number: number,
   type: WidgetTypes,
-  data: never
+  data: any
 }

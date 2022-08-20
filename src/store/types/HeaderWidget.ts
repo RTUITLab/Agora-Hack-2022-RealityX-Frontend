@@ -10,7 +10,6 @@ export interface IHeaderWidget extends IWidget {
     height: number,
     marginBottom: number,
     logoUrl: string,
-    titleColor: string,
     linksColor: string,
     links: Array<ILink>
   }
