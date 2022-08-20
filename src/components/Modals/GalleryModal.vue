@@ -33,16 +33,22 @@
         </div>
       </div>
 
-      <div v-for="(imageUrl, i) in imageUrls" :key="imageUrl">
-        <label>Изображение {{i + 1}}
+      <div v-for="(imageUrl, i) in imageUrls" :key="imageUrl + i">
+        <label :ref="imageUrl + i">Изображение {{i + 1}}
           <br>
           <image-skeleton v-if="!imageUrl" height="96"></image-skeleton>
           <img v-else :src="imageUrl" style="width: 100%">
           <input hidden type="file" @change="() => uploadFile(i)">
         </label>
+        <sequence-controller
+          @add="() => $refs[imageUrl + i][0].click()"
+          @up="() => swapItems(i, i - 1)"
+          @down="() => swapItems(i, i + 1)"
+          @remove="() => removeItem(i)"
+        ></sequence-controller>
       </div>
 
-      <button class="black-btn" style="width: max-content; padding: 12px 14px" @click="() => imageUrls.push('')">Добавить</button>
+      <button class="black-btn add" @click="() => imageUrls.push('')">Добавить</button>
     </template>
 
     <template slot="footer">
@@ -56,9 +62,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 import BaseModal from '@/components/Modals/BaseModal.vue'
 import { IGalleryWidget } from '@/store/types/GalleryWidget'
 import ImageSkeleton from '@/components/ImageSkeleton.vue'
+import SequenceController from '@/components/Forms/SequenceController.vue'
 
 @Component({
-  components: { ImageSkeleton, BaseModal }
+  components: { SequenceController, ImageSkeleton, BaseModal }
 })
 export default class GalleryModal extends Vue {
   @Prop({})
@@ -81,9 +88,26 @@ export default class GalleryModal extends Vue {
   uploadFile (index: number) {
     this.imageUrls.splice(index, 1, '/Logo0.svg')
   }
+
+  removeItem (index: number) {
+    this.imageUrls.splice(index, 1)
+  }
+
+  swapItems (currIndex: number, targetIndex: number) {
+    if (targetIndex >= 0 && targetIndex < this.imageUrls.length) {
+      const temp = this.imageUrls[currIndex]
+      this.imageUrls[currIndex] = this.imageUrls[targetIndex]
+      this.imageUrls[targetIndex] = temp
+
+      this.$forceUpdate()
+    }
+  }
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.add {
+  width: max-content;
+  padding: 12px 14px;
+}
 </style>
