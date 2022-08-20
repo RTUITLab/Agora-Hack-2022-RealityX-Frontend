@@ -25,10 +25,9 @@
       <label for="structure"><span class="dot purple"></span>Структура сайта</label>
       <input type="checkbox" id="structure">
       <ul>
-        <li>sdasd</li>
-        <li>sdasd</li>
-        <li>sdasd</li>
-        <li>sdasd</li>
+        <li v-for="widget in widgets" :key="widget.id">
+          <structure-item :data="widget"></structure-item>
+        </li>
       </ul>
     </section>
     <section>
@@ -45,14 +44,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import BaseModal from '@/components/Modals/BaseModal.vue'
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import IWidget from '@/store/types/Widget'
+import StructureItem from '@/components/Editor/StructureItem.vue'
 
 @Component({
   name: 'sidebar',
-  components: { BaseModal }
+  components: { StructureItem }
 })
-export default class Sidebar extends Vue {}
+export default class Sidebar extends Vue {
+  @Prop({})
+  public widgets: Array<IWidget> = []
+}
 </script>
 
 <style lang="scss" scoped>

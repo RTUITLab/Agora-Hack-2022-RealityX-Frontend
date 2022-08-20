@@ -35,7 +35,7 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class BaseModal extends Vue {
-  public close() {
+  public close () {
     this.$emit('close')
   }
 }
