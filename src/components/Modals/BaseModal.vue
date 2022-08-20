@@ -17,9 +17,9 @@
           </div>
 
           <div class="modal-footer">
-            <button class="modal-default-button white-btn" style="margin-right: auto" @click="$emit('close')">Отменить</button>
-            <slot name="footer" @click="$emit('close')">
-              <button class="modal-default-button" @click="$emit('close')">
+            <button class="modal-default-button white-btn" style="margin-right: auto" @click="close">Отменить</button>
+            <slot name="footer" @click="close">
+              <button class="modal-default-button" @click="close">
                 OK
               </button>
             </slot>
@@ -34,7 +34,11 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class BaseModal extends Vue {}
+export default class BaseModal extends Vue {
+  public close() {
+    this.$emit('close')
+  }
+}
 </script>
 
 <style lang="scss" scoped>
