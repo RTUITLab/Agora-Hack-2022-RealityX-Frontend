@@ -1,6 +1,6 @@
 <template>
   <div class="workspace">
-    <HeaderWidget :data="data[0]"></HeaderWidget>
+    <HeaderWidget :input-data="data[0]"></HeaderWidget>
   </div>
 </template>
 
