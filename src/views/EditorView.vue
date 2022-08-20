@@ -17,6 +17,7 @@ import { createProject, IProject } from '@/store/types/Project'
 import IWidget, { WidgetTypes } from '@/store/types/Widget'
 import { createDefaultText } from '@/store/types/TextWidget'
 import { createDefaultImage } from '@/store/types/ImageWidget'
+import { createDefaultGallery } from '@/store/types/GalleryWidget'
 
 @Component({
   components: {
@@ -45,6 +46,9 @@ export default class EditorView extends Vue {
           break
         case WidgetTypes.IMAGE:
           this.project.widgets.push(createDefaultImage())
+          break
+        case WidgetTypes.GALLERY:
+          this.project.widgets.push(createDefaultGallery())
           break
       }
 

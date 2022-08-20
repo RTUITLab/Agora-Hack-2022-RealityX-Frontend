@@ -14,9 +14,10 @@ import HeaderModal from '@/components/Modals/HeaderModal.vue'
 import FooterModal from '@/components/Modals/FooterModal.vue'
 import TextModal from '@/components/Modals/TextModal.vue'
 import ImageModal from '@/components/Modals/ImageModal.vue'
+import GalleryModal from '@/components/Modals/GalleryModal.vue'
 
 @Component({
-  components: { TextModal, ImageModal, FooterModal, HeaderModal }
+  components: { TextModal, ImageModal, GalleryModal, FooterModal, HeaderModal }
 })
 export default class StructureItem extends Vue {
   @Prop({
@@ -51,6 +52,8 @@ export default class StructureItem extends Vue {
         return TextModal
       case WidgetTypes.IMAGE:
         return ImageModal
+      case WidgetTypes.GALLERY:
+        return GalleryModal
       default:
         return 'br'
     }

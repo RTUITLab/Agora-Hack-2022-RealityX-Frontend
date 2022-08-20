@@ -24,9 +24,10 @@ import FooterWidget from '@/components/Widgets/FooterWidget.vue'
 import AddModal from '@/components/Modals/AddModal.vue'
 import TextWidget from '@/components/Widgets/TextWidget.vue'
 import ImageWidget from '@/components/Widgets/ImageWidget.vue'
+import GalleryWidget from '@/components/Widgets/GalleryWidget.vue'
 
 @Component({
-  components: { TextWidget, ImageWidget, AddModal, FooterWidget, HeaderWidget }
+  components: { TextWidget, ImageWidget, GalleryWidget, AddModal, FooterWidget, HeaderWidget }
 })
 export default class EditorWorkspace extends Vue {
   @Prop()
@@ -47,6 +48,8 @@ export default class EditorWorkspace extends Vue {
         return TextWidget
       case WidgetTypes.IMAGE:
         return ImageWidget
+      case WidgetTypes.GALLERY:
+        return GalleryWidget
     }
   }
 }
