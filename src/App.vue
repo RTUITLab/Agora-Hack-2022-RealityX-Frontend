@@ -81,5 +81,22 @@ button {
       background-color: #e3e1e1;
     }
   }
+
+  &.link {
+    margin-left: 16px;
+    padding: 0;
+    width: max-content;
+
+    color: #3870FF;
+    background: none;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 </style>

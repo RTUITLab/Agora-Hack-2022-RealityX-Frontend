@@ -1,6 +1,6 @@
 <template>
   <main>
-    <sidebar></sidebar>
+    <sidebar :data="project"></sidebar>
     <div style="padding-left: 360px">
       <editor-header></editor-header>
       <editor-workspace></editor-workspace>
@@ -13,6 +13,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import Sidebar from '@/components/Editor/Sidebar.vue'
 import EditorHeader from '@/components/Editor/EditorHeader.vue'
 import EditorWorkspace from '@/components/Editor/EditorWorkspace.vue'
+import { createProject, IProject } from '@/store/types/Project'
 
 @Component({
   components: {
@@ -22,12 +23,10 @@ import EditorWorkspace from '@/components/Editor/EditorWorkspace.vue'
   }
 })
 export default class EditorView extends Vue {
-  projectName = ''
+  project!: IProject
 
-  public mounted () {
-    this.projectName = this.$route.params.name!
-
-    console.log(this.projectName)
+  public created () {
+    this.project = createProject('', '', 'example')
   }
 }
 </script>

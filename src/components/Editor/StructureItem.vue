@@ -2,20 +2,26 @@
   <div class="structure-item">
     <img :src="icon">
     <p>{{title}}</p>
-    <button>Изменить</button>
+    <button class="link" @click="showModal = true">Изменить</button>
+    <header-modal v-if="showModal" @close="showModal = false" :input-data="data"></header-modal>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import IWidget, { WidgetTypes } from '@/store/types/Widget'
+import HeaderModal from '@/components/Modals/HeaderModal.vue'
 
-@Component({})
+@Component({
+  components: { HeaderModal }
+})
 export default class StructureItem extends Vue {
   @Prop({
     required: true
   })
   public data!: IWidget
+
+  public showModal = false
 
   get title (): string {
     return this.data.type + ' ' + this.data.number
@@ -24,16 +30,24 @@ export default class StructureItem extends Vue {
   get icon (): string {
     switch (this.data.type) {
       case WidgetTypes.HEADER:
-        return '../../assets/Widgets/icons/header.svg'
+        return '/header.svg'
       case WidgetTypes.FOOTER:
-        return '../../assets/Widgets/icons/footer.svg'
+        return '/footer.svg'
       default:
-        return '../../assets/Widgets/icons/widget.svg'
+        return '/widget.svg'
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.structure-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
+  p {
+    margin: 4px auto 4px 8px;
+  }
+}
 </style>

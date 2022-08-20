@@ -25,7 +25,7 @@
       <label for="structure"><span class="dot purple"></span>Структура сайта</label>
       <input type="checkbox" id="structure">
       <ul>
-        <li v-for="widget in widgets" :key="widget.id">
+        <li v-for="widget in data.widgets" :key="widget.id">
           <structure-item :data="widget"></structure-item>
         </li>
       </ul>
@@ -47,14 +47,17 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import IWidget from '@/store/types/Widget'
 import StructureItem from '@/components/Editor/StructureItem.vue'
+import { IProject } from '@/store/types/Project'
 
 @Component({
   name: 'sidebar',
   components: { StructureItem }
 })
 export default class Sidebar extends Vue {
-  @Prop({})
-  public widgets: Array<IWidget> = []
+  @Prop({
+    required: true
+  })
+  public data!: IProject
 }
 </script>
 

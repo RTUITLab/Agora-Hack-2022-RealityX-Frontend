@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { IHeaderWidget } from '@/store/types/HeaderWidget'
+import { createDefaultHeader, IHeaderWidget } from '@/store/types/HeaderWidget'
 import { WidgetTypes } from '@/store/types/Widget'
 
 @Component({})
@@ -27,28 +27,7 @@ export default class HeaderWidget extends Vue {
     this.data = this.inputData
 
     if (!this.data || !this.data.id) {
-      this.data = {
-        type: WidgetTypes.HEADER,
-        number: 0,
-        id: 'header',
-        data: {
-          height: 120,
-          marginBottom: 0,
-          links: [
-            {
-              url: 'sdfsd',
-              name: 'sdfsdf'
-            },
-            {
-              name: 'sdfsdf',
-              url: 'sdfsdf'
-            }
-          ],
-          linksColor: '#505050',
-          logoUrl: ''
-        },
-        template: ''
-      }
+      this.data = createDefaultHeader()
     }
   }
 
