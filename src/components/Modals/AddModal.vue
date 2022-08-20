@@ -11,7 +11,7 @@
         <img src="../../assets/Image.svg" @click="addWidget('Image')">
       </div>
       <div class="row" style="gap: 20px; justify-content: center">
-        <img src="../../assets/Cards.svg">
+        <img src="../../assets/Cards.svg" @click="addWidget('Products')">
         <img src="../../assets/Gallery.svg" @click="addWidget('Images')">
         <img src="../../assets/Custom.svg">
       </div>

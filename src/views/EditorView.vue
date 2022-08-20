@@ -18,6 +18,7 @@ import IWidget, { WidgetTypes } from '@/store/types/Widget'
 import { createDefaultText } from '@/store/types/TextWidget'
 import { createDefaultImage } from '@/store/types/ImageWidget'
 import { createDefaultGallery } from '@/store/types/GalleryWidget'
+import { createDefaultCards } from '@/store/types/CardsWidget'
 
 @Component({
   components: {
@@ -49,6 +50,9 @@ export default class EditorView extends Vue {
           break
         case WidgetTypes.GALLERY:
           this.project.widgets.splice(this.project.widgets.length - 1, 0, createDefaultGallery())
+          break
+        case WidgetTypes.CARDS:
+          this.project.widgets.splice(this.project.widgets.length - 1, 0, createDefaultCards())
           break
       }
 

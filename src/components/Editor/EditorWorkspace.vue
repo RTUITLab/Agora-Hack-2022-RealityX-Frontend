@@ -25,9 +25,10 @@ import AddModal from '@/components/Modals/AddModal.vue'
 import TextWidget from '@/components/Widgets/TextWidget.vue'
 import ImageWidget from '@/components/Widgets/ImageWidget.vue'
 import GalleryWidget from '@/components/Widgets/GalleryWidget.vue'
+import CardsWidget from '@/components/Widgets/CardsWidget.vue'
 
 @Component({
-  components: { TextWidget, ImageWidget, GalleryWidget, AddModal, FooterWidget, HeaderWidget }
+  components: { TextWidget, ImageWidget, GalleryWidget, CardsWidget, AddModal, FooterWidget, HeaderWidget }
 })
 export default class EditorWorkspace extends Vue {
   @Prop()
@@ -50,6 +51,8 @@ export default class EditorWorkspace extends Vue {
         return ImageWidget
       case WidgetTypes.GALLERY:
         return GalleryWidget
+      case WidgetTypes.CARDS:
+        return CardsWidget
     }
   }
 }
