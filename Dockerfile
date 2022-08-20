@@ -7,6 +7,6 @@ COPY . .
 RUN npm run build
 
 FROM steebchen/nginx-spa:stable
-COPY --from=build /frontend/build /app
+COPY --from=build /frontend/dist /app
 EXPOSE 80
 CMD nginx
