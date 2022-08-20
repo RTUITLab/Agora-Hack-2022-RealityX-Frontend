@@ -4,7 +4,7 @@
       <img v-if="data.data.logoUrl" :height="`${data.data.height - 40 * 2}px`" :src="data.data.logoUrl" alt="Site logo">
     </div>
     <ul class="ws-header_links" style="padding: 0; margin: 0">
-      <li v-for="link in data.data.links" :key="link.name" style="list-style: none; display: inline-block; margin-left: 32px">
+      <li v-for="link in data.data.links" :key="link.name" class="ws-header_link">
         <a :href="link.url" :style="`text-decoration: none; font-size: 18px; color: ${data.data.linksColor}`">{{link.name}}</a>
       </li>
     </ul>
@@ -68,6 +68,25 @@ export default class HeaderWidget extends Vue {
 
   .ws-header_logo-wrapper {
     margin-right: auto;
+  }
+}
+
+.ws-header_link {
+  list-style: none;
+  display: inline-block;
+  margin-left: 32px;
+}
+
+@media (max-width: 1042px) {
+  .ws-header {
+    flex-direction: column;
+    gap: 16px;
+    height: auto !important;
+  }
+
+  .ws-header_link {
+    display: block;
+    margin: 8px auto;
   }
 }
 </style>
