@@ -14,7 +14,8 @@ import Sidebar from '@/components/Editor/Sidebar.vue'
 import EditorHeader from '@/components/Editor/EditorHeader.vue'
 import EditorWorkspace from '@/components/Editor/EditorWorkspace.vue'
 import { createProject, IProject } from '@/store/types/Project'
-import IWidget from '@/store/types/Widget'
+import IWidget, { WidgetTypes } from '@/store/types/Widget'
+import { createDefaultText } from '@/store/types/TextWidget'
 
 @Component({
   components: {
@@ -32,6 +33,17 @@ export default class EditorView extends Vue {
     this.$root.$on('update', (e: IWidget) => {
       const index = this.project.widgets.findIndex(value => value.id === e.id)
       this.project.widgets.splice(index, 1, e)
+      this.project = JSON.parse(JSON.stringify(this.project))
+      this.$forceUpdate()
+    })
+
+    this.$root.$on('add', (e: WidgetTypes) => {
+      switch (e) {
+        case WidgetTypes.TEXT:
+          this.project.widgets.push(createDefaultText())
+          break
+      }
+
       this.project = JSON.parse(JSON.stringify(this.project))
       this.$forceUpdate()
     })
