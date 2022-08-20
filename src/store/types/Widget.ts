@@ -1,11 +1,11 @@
 export enum WidgetTypes {
-  HEADER,
-  FOOTER,
-  TEXT,
-  IMAGE,
-  CARDS,
-  GALLERY,
-  SLIDER
+  HEADER = 'Header',
+  FOOTER = 'Footer',
+  TEXT = 'Text',
+  IMAGE = 'Image',
+  CARDS = 'Products',
+  GALLERY = 'Images',
+  SLIDER = 'Slider'
 }
 
 export default interface IWidget {
