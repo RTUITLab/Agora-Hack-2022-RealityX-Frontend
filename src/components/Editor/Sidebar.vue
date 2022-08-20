@@ -35,7 +35,7 @@
       <label for="scripts"><span class="dot red"></span>Сторонние скрипты</label>
       <input type="checkbox" id="scripts">
       <ul>
-        <li>sdasd</li>
+        <base-modal v-if="showModal" @close="showModal = false"></base-modal><li>sdasd</li>
         <li>sdasd</li>
         <li>sdasd</li>
         <li>sdasd</li>
@@ -46,11 +46,15 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import BaseModal from '@/components/Modals/BaseModal.vue'
 
 @Component({
-  name: 'sidebar'
+  name: 'sidebar',
+  components: { BaseModal }
 })
-export default class Sidebar extends Vue {}
+export default class Sidebar extends Vue {
+  showModal = true
+}
 </script>
 
 <style lang="scss" scoped>

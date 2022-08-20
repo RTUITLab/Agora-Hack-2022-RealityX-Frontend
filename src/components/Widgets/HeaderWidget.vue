@@ -23,7 +23,7 @@ export default class HeaderWidget extends Vue {
 
   public data?: IHeaderWidget
 
-  public mounted () {
+  public created () {
     this.data = this.inputData
 
     if (!this.data || !this.data.id) {
@@ -49,8 +49,6 @@ export default class HeaderWidget extends Vue {
         },
         template: ''
       }
-
-      this.data.template = this.genTemplate()
     }
   }
 

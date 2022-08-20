@@ -61,12 +61,24 @@ button {
 
   cursor: pointer;
 
+  transition: .1s;
+
   &.blue-btn {
     background-color: #3870FF;
     color: white;
 
     &:active {
       background-color: #759bff;
+    }
+  }
+
+  &.white-btn {
+    background-color: #FFFFFF;
+    color: #718096;
+    border: 1px solid #71809633;
+
+    &:active {
+      background-color: #e3e1e1;
     }
   }
 }
