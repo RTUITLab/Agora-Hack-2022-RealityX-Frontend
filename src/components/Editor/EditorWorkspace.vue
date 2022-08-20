@@ -43,7 +43,7 @@ export default class EditorWorkspace extends Vue {
   componentName (type: WidgetTypes) {
     switch (type) {
       case WidgetTypes.TEXT:
-        return TextWidget.name
+        return TextWidget
     }
   }
 }
