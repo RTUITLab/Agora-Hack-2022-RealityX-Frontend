@@ -30,7 +30,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-input[type=text] {
+input[type=text], textarea {
   width: 100%;
   margin-top: 8px;
   padding: 16px;

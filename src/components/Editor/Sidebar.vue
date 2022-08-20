@@ -45,7 +45,6 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import IWidget from '@/store/types/Widget'
 import StructureItem from '@/components/Editor/StructureItem.vue'
 import { IProject } from '@/store/types/Project'
 

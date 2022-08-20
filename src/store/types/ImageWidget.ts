@@ -1,5 +1,4 @@
 import IWidget, { makeId, WidgetTypes } from '@/store/types/Widget'
-import { ITextWidget } from '@/store/types/TextWidget'
 
 export interface IImageWidget extends IWidget {
   data: {

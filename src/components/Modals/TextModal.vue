@@ -51,7 +51,7 @@
         <div>
           <label>Текст
             <br>
-            <input type="text" v-model="data.data.text.text" style="width: 100%">
+            <textarea rows="5" v-model="data.data.text.text" style="width: 100%; resize: none"></textarea>
           </label>
         </div>
       </div>
