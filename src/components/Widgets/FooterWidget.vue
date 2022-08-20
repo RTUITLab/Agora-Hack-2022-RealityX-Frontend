@@ -1,5 +1,5 @@
 <template>
-  <div :id="data.id + '_' + data.number" class="ws-footer" :style="`height: ${data.data.height}px; margin-top: ${data.data.marginTop}px`">
+  <div :id="data.id + '_' + data.number" class="ws-footer" :style="`height: ${data.data.height}px; margin: ${data.data.marginTop}px 80px 0`">
     <div class="ws-footer_text" :style="`color: ${data.data.textColor}`">{{data.data.text}}</div>
   </div>
 </template>
@@ -29,6 +29,7 @@ export default class FooterWidget extends Vue {
 
   .ws-footer_text {
     margin: auto;
+    text-align: center;
   }
 }
 </style>
