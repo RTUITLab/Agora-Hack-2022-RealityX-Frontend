@@ -1,15 +1,16 @@
 <template>
  <div class="color-picker">
    <input type="text" disabled :value="color">
-   <label for="input" :style="`background: ${color}`">
+   <label :for="id" :style="`background: ${color}`">
       &nbsp;
    </label>
-   <input type="color" id="input" hidden v-model="color" @input="$emit('input', color)">
+   <input type="color" :id="id" hidden v-model="color" @input="$emit('input', color)">
  </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { makeId } from '@/store/types/Widget'
 
 @Component({})
 export default class ColorPicker extends Vue {
@@ -17,6 +18,7 @@ export default class ColorPicker extends Vue {
   value!: string
 
   color = '#000000'
+  id = makeId(10)
 
   created () {
     this.color = this.value

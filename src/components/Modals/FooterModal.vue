@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="row">
-        <label style="margin: 16px 0">Отступ снизу
+        <label style="margin: 16px 0">Цвет текста
           <color-picker style="margin-top: 8px" @input="(e) => data.data.textColor = e" :value="data.data.textColor"></color-picker>
         </label>
       </div>

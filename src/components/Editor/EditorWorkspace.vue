@@ -2,7 +2,12 @@
   <div class="workspace">
     <header-widget :input-data="data[0]"></header-widget>
 
-    <component :is="componentName(item.type)" v-for="item in data.slice(2)" :key="item.id"></component>
+    <component
+      :is="componentName(item.type)"
+      v-for="item in data.slice(2)"
+      :key="item.id"
+      :input-data="item"
+    ></component>
 
     <button class="add black-btn" @click="showAddModal = true">Добавить блок</button>
     <add-modal v-if="showAddModal" @close="showAddModal = false"></add-modal>

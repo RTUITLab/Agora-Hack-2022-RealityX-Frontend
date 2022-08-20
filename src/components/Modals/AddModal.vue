@@ -7,7 +7,7 @@
     <template slot="body">
       <div class="row" style="gap: 20px; justify-content: center">
         <img src="../../assets/Slider.svg">
-        <img src="../../assets/Text_block.svg" @click="$root.$emit('add', 'Text')">
+        <img src="../../assets/Text_block.svg" @click="addWidget('Text')">
         <img src="../../assets/Image.svg">
       </div>
       <div class="row" style="gap: 20px; justify-content: center">
@@ -25,13 +25,15 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import BaseModal from '@/components/Modals/BaseModal.vue'
+import { WidgetTypes } from '@/store/types/Widget'
 
 @Component({
   components: { BaseModal }
 })
 export default class AddModal extends Vue {
-  addWidget () {
-    return true
+  addWidget (type: WidgetTypes) {
+    this.$root.$emit('add', type)
+    this.$emit('close')
   }
 }
 </script>
