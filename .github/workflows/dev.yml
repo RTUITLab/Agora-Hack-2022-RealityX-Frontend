@@ -2,8 +2,7 @@ name: CI Dev
 
 on:
   push:
-#    branches: [ main ]
-    branches: [ 'features/add-ci' ]
+    branches: [ main ]
 
 jobs:
 
