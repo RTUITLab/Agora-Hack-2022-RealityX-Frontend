@@ -40,14 +40,14 @@ export default class StructureItem extends Vue {
     }
   }
 
-  get component (): string {
+  get component () {
     switch (this.data.type) {
       case WidgetTypes.HEADER:
-        return HeaderModal.name
+        return HeaderModal
       case WidgetTypes.FOOTER:
-        return FooterModal.name
+        return FooterModal
       case WidgetTypes.TEXT:
-        return TextModal.name
+        return TextModal
       default:
         return 'br'
     }
