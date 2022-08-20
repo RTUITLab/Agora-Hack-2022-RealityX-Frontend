@@ -9,11 +9,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class ColorPicker extends Vue {
+  @Prop({})
+  value!: string
+
   color = '#000000'
+
+  created () {
+    this.color = this.value
+  }
 }
 </script>
 

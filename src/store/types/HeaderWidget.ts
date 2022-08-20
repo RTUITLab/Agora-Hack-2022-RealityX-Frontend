@@ -15,10 +15,13 @@ export interface IHeaderWidget extends IWidget {
   }
 }
 
+let counter = -1
+
 export function createDefaultHeader (): IHeaderWidget {
+  counter++
   return {
     type: WidgetTypes.HEADER,
-    number: 0,
+    number: counter,
     id: 'header',
     data: {
       height: 120,
@@ -26,10 +29,10 @@ export function createDefaultHeader (): IHeaderWidget {
       links: [
         {
           url: 'sdfsd',
-          name: 'sdfsdf'
+          name: 'Yandex'
         },
         {
-          name: 'sdfsdf',
+          name: 'Google',
           url: 'sdfsdf'
         }
       ],

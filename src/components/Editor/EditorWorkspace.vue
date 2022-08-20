@@ -1,6 +1,7 @@
 <template>
   <div class="workspace">
-    <HeaderWidget :input-data="data[0]"></HeaderWidget>
+    <header-widget :input-data="data[0]"></header-widget>
+    <footer-widget :input-data="data[1]"></footer-widget>
   </div>
 </template>
 
@@ -8,9 +9,10 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import HeaderWidget from '@/components/Widgets/HeaderWidget.vue'
 import IWidget from '@/store/types/Widget'
+import FooterWidget from '@/components/Widgets/FooterWidget.vue'
 
 @Component({
-  components: { HeaderWidget }
+  components: { FooterWidget, HeaderWidget }
 })
 export default class EditorWorkspace extends Vue {
   @Prop()

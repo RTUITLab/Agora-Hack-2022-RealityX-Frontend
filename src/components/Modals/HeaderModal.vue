@@ -28,8 +28,8 @@
         </label>
       </div>
       <div class="row">
-        <label style="margin: 16px 0">Отступ снизу
-          <color-picker style="margin-top: 8px" @input="data.data.linksColor"></color-picker>
+        <label style="margin: 16px 0">Цвет ссылок
+          <color-picker style="margin-top: 8px" @input="(e) => data.data.linksColor = e" :value="data.data.linksColor"></color-picker>
         </label>
       </div>
       <div v-if="data.data.links.length">

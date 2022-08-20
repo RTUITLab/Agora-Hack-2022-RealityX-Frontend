@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { createDefaultHeader, IHeaderWidget } from '@/store/types/HeaderWidget'
+import { IHeaderWidget } from '@/store/types/HeaderWidget'
 
 @Component({})
 export default class HeaderWidget extends Vue {

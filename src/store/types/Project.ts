@@ -1,5 +1,6 @@
 import IWidget from '@/store/types/Widget'
 import { createDefaultHeader, ILink } from '@/store/types/HeaderWidget'
+import { createDefaultFooter } from '@/store/types/FooterWidget'
 
 export interface IProjectSettings {
   title: string
@@ -34,7 +35,7 @@ export function createProject (title: string, description: string, id: string): 
       headerColor: '#F6F9FB',
       footerColor: '#1F223B'
     },
-    widgets: [createDefaultHeader()],
+    widgets: [createDefaultHeader(), createDefaultFooter()],
     links: []
   }
 }

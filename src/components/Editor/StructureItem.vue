@@ -3,7 +3,8 @@
     <img :src="icon">
     <p>{{title}}</p>
     <button class="link" @click="showModal = true">Изменить</button>
-    <header-modal v-if="showModal" @close="showModal = false" :input-data="data"></header-modal>
+    <header-modal v-if="showModal && data.type === 'Header'" @close="showModal = false" :input-data="data"></header-modal>
+    <footer-modal v-if="showModal && data.type === 'Footer'" @close="showModal = false" :input-data="data"></footer-modal>
   </div>
 </template>
 
@@ -11,9 +12,10 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import IWidget, { WidgetTypes } from '@/store/types/Widget'
 import HeaderModal from '@/components/Modals/HeaderModal.vue'
+import FooterModal from '@/components/Modals/FooterModal.vue'
 
 @Component({
-  components: { HeaderModal }
+  components: { FooterModal, HeaderModal }
 })
 export default class StructureItem extends Vue {
   @Prop({
