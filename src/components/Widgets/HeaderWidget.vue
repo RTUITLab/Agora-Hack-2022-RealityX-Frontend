@@ -39,6 +39,22 @@ export default class HeaderWidget extends Vue {
       padding: 40px 80px;
       box-sizing: border-box;
     }
+    @media (max-width: 678px) {
+      .ws-header {
+        flex-direction: column;
+        gap: 16px;
+        height: auto !important;
+      }
+
+      .ws-header_link {
+        display: block;
+        margin: 8px auto;
+      }
+
+      .ws-header_logo-wrapper {
+        margin: auto;
+      }
+    }
     </style>
     `
     return style + `<div id="${this.data!.id} + '_' + ${this.data!.number}" class="ws-header" style="height: ${this.data!.data.height}px; margin-bottom: ${this.data!.data.marginBottom}px">
@@ -82,6 +98,10 @@ export default class HeaderWidget extends Vue {
     flex-direction: column;
     gap: 16px;
     height: auto !important;
+
+    .ws-header_logo-wrapper {
+      margin: auto;
+    }
   }
 
   .ws-header_link {
