@@ -14,21 +14,18 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { createDefaultHeader, IHeaderWidget } from '@/store/types/HeaderWidget'
-import { WidgetTypes } from '@/store/types/Widget'
 
 @Component({})
 export default class HeaderWidget extends Vue {
   @Prop()
-  public inputData?: IHeaderWidget
+  public inputData!: IHeaderWidget
 
-  public data?: IHeaderWidget
+  public data = {} as IHeaderWidget
 
   public created () {
     this.data = this.inputData
 
-    if (!this.data || !this.data.id) {
-      this.data = createDefaultHeader()
-    }
+    this.$watch('inputData', (newData) => (this.data = newData))
   }
 
   public genTemplate () {

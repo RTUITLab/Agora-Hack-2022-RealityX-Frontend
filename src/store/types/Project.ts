@@ -34,7 +34,7 @@ export function createProject (title: string, description: string, id: string): 
       headerColor: '#F6F9FB',
       footerColor: '#1F223B'
     },
-    widgets: [createDefaultHeader(), createDefaultHeader()],
+    widgets: [createDefaultHeader()],
     links: []
   }
 }

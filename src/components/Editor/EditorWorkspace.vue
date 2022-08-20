@@ -21,9 +21,7 @@ export default class EditorWorkspace extends Vue {
   public created () {
     this.data = this.inputData || []
 
-    if (!this.data.length) {
-      this.data = [{} as IWidget, {} as IWidget]
-    }
+    this.$watch('inputData', (newData) => (this.data = newData))
   }
 }
 </script>

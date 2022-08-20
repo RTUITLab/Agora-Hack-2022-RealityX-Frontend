@@ -41,7 +41,7 @@
             <label>Название</label>
           </div>
         </div>
-        <div class="row" v-for="link in links" :key="link.name">
+        <div class="row" style="margin: 4px 0" v-for="link in links" :key="link.name">
           <div style="width: 50%">
             <input type="text" v-model="link.url">
           </div>
@@ -50,10 +50,10 @@
           </div>
         </div>
       </div>
-      <button @click="links.push({ url: '', name: ''})" style="width: max-content">Добавить</button>
+      <button @click="links.push({ url: '', name: ''})" style="width: max-content; margin: 8px 0 0">Добавить</button>
     </template>
     <template slot="footer">
-      <button class="blue-btn" style="width: max-content">Сохранить</button>
+      <button class="blue-btn" style="width: max-content" @click="saveData">Сохранить</button>
     </template>
   </base-modal>
 </template>
@@ -79,11 +79,18 @@ export default class HeaderModal extends Vue {
   public created () {
     this.data = JSON.parse(JSON.stringify(this.inputData))
     this.logoUrl = this.inputData.data.logoUrl
+    this.links = this.data.data.links
   }
 
   uploadFile () {
-    console.log('asdasd')
-    this.logoUrl = 'asd'
+    this.logoUrl = 'not empty'
+  }
+
+  saveData () {
+    this.data.data.links = this.links
+    this.data.data.logoUrl = this.logoUrl
+    this.$root.$emit('update', this.data)
+    this.$emit('close')
   }
 }
 </script>
