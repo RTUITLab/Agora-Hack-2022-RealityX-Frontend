@@ -83,7 +83,7 @@ export default class HeaderModal extends Vue {
   }
 
   uploadFile () {
-    this.logoUrl = 'not empty'
+    this.logoUrl = '/Logo0.svg'
   }
 
   saveData () {

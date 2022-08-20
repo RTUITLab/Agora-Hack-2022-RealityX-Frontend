@@ -82,6 +82,15 @@ button {
     }
   }
 
+  &.black-btn {
+    background-color: #19171D;
+    color: #FFFFFF;
+
+    &:active {
+      background-color: #35323b;
+    }
+  }
+
   &.link {
     margin-left: 16px;
     padding: 0;

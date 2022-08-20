@@ -24,11 +24,11 @@
           <color-picker style="margin-top: 8px" @input="(e) => data.data.textColor = e" :value="data.data.textColor"></color-picker>
         </label>
       </div>
-      <div class="row">
+      <div class="row" style="display: block">
         <div>
           <label>Текст
             <br>
-            <input type="text" v-model="data.data.text">
+            <input type="text" v-model="data.data.text" style="width: 100%">
           </label>
         </div>
       </div>
@@ -65,6 +65,9 @@ export default class FooterModal extends Vue {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+label {
+  color: #718096;
+  font-size: 14px;
+}
 </style>
