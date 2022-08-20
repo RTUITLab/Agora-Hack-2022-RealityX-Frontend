@@ -7,13 +7,13 @@
     <template slot="body">
       <div class="row" style="gap: 20px; justify-content: center">
         <img src="../../assets/Slider.svg">
-        <img src="../../assets/Slider.svg">
-        <img src="../../assets/Slider.svg">
+        <img src="../../assets/Text_block.svg" @click="$root.$emit('add', 'Text')">
+        <img src="../../assets/Image.svg">
       </div>
       <div class="row" style="gap: 20px; justify-content: center">
-        <img src="../../assets/Slider.svg">
-        <img src="../../assets/Slider.svg">
-        <img src="../../assets/Slider.svg">
+        <img src="../../assets/Cards.svg">
+        <img src="../../assets/Gallery.svg">
+        <img src="../../assets/Custom.svg">
       </div>
     </template>
     <template slot="footer">
@@ -37,5 +37,7 @@ export default class AddModal extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
+img {
+  cursor: pointer;
+}
 </style>
