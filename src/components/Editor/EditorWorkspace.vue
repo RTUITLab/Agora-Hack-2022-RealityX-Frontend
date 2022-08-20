@@ -4,7 +4,7 @@
 
     <component
       :is="componentName(item.type)"
-      v-for="item in data.slice(2)"
+      v-for="item in data.slice(1, data.length - 1)"
       :key="item.id"
       :input-data="item"
     ></component>
@@ -12,7 +12,7 @@
     <button class="add black-btn" @click="showAddModal = true">Добавить блок</button>
     <add-modal v-if="showAddModal" @close="showAddModal = false"></add-modal>
 
-    <footer-widget :input-data="data[1]"></footer-widget>
+    <footer-widget :input-data="data[data.length - 1]"></footer-widget>
   </div>
 </template>
 

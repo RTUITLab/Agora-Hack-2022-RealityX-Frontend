@@ -42,13 +42,13 @@ export default class EditorView extends Vue {
     this.$root.$on('add', (e: WidgetTypes) => {
       switch (e) {
         case WidgetTypes.TEXT:
-          this.project.widgets.push(createDefaultText())
+          this.project.widgets.splice(this.project.widgets.length - 1, 0, createDefaultText())
           break
         case WidgetTypes.IMAGE:
-          this.project.widgets.push(createDefaultImage())
+          this.project.widgets.splice(this.project.widgets.length - 1, 0, createDefaultImage())
           break
         case WidgetTypes.GALLERY:
-          this.project.widgets.push(createDefaultGallery())
+          this.project.widgets.splice(this.project.widgets.length - 1, 0, createDefaultGallery())
           break
       }
 
