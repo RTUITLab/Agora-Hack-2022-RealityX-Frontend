@@ -13,9 +13,10 @@ import IWidget, { WidgetTypes } from '@/store/types/Widget'
 import HeaderModal from '@/components/Modals/HeaderModal.vue'
 import FooterModal from '@/components/Modals/FooterModal.vue'
 import TextModal from '@/components/Modals/TextModal.vue'
+import ImageModal from '@/components/Modals/ImageModal.vue'
 
 @Component({
-  components: { TextModal, FooterModal, HeaderModal }
+  components: { TextModal, ImageModal, FooterModal, HeaderModal }
 })
 export default class StructureItem extends Vue {
   @Prop({
@@ -48,6 +49,8 @@ export default class StructureItem extends Vue {
         return FooterModal
       case WidgetTypes.TEXT:
         return TextModal
+      case WidgetTypes.IMAGE:
+        return ImageModal
       default:
         return 'br'
     }

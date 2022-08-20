@@ -8,7 +8,7 @@
       <div class="row" style="gap: 20px; justify-content: center">
         <img src="../../assets/Slider.svg">
         <img src="../../assets/Text_block.svg" @click="addWidget('Text')">
-        <img src="../../assets/Image.svg">
+        <img src="../../assets/Image.svg" @click="addWidget('Image')">
       </div>
       <div class="row" style="gap: 20px; justify-content: center">
         <img src="../../assets/Cards.svg">

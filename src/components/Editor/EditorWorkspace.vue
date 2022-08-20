@@ -23,9 +23,10 @@ import IWidget, { WidgetTypes } from '@/store/types/Widget'
 import FooterWidget from '@/components/Widgets/FooterWidget.vue'
 import AddModal from '@/components/Modals/AddModal.vue'
 import TextWidget from '@/components/Widgets/TextWidget.vue'
+import ImageWidget from '@/components/Widgets/ImageWidget.vue'
 
 @Component({
-  components: { TextWidget, AddModal, FooterWidget, HeaderWidget }
+  components: { TextWidget, ImageWidget, AddModal, FooterWidget, HeaderWidget }
 })
 export default class EditorWorkspace extends Vue {
   @Prop()
@@ -44,6 +45,8 @@ export default class EditorWorkspace extends Vue {
     switch (type) {
       case WidgetTypes.TEXT:
         return TextWidget
+      case WidgetTypes.IMAGE:
+        return ImageWidget
     }
   }
 }

@@ -16,6 +16,7 @@ import EditorWorkspace from '@/components/Editor/EditorWorkspace.vue'
 import { createProject, IProject } from '@/store/types/Project'
 import IWidget, { WidgetTypes } from '@/store/types/Widget'
 import { createDefaultText } from '@/store/types/TextWidget'
+import { createDefaultImage } from '@/store/types/ImageWidget'
 
 @Component({
   components: {
@@ -41,6 +42,9 @@ export default class EditorView extends Vue {
       switch (e) {
         case WidgetTypes.TEXT:
           this.project.widgets.push(createDefaultText())
+          break
+        case WidgetTypes.IMAGE:
+          this.project.widgets.push(createDefaultImage())
           break
       }
 
