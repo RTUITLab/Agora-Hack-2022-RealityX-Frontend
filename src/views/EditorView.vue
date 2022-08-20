@@ -3,6 +3,7 @@
     <sidebar></sidebar>
     <div style="padding-left: 360px">
       <editor-header></editor-header>
+      <editor-workspace></editor-workspace>
     </div>
   </main>
 </template>
@@ -11,10 +12,13 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Sidebar from '@/components/Editor/Sidebar.vue'
 import EditorHeader from '@/components/Editor/EditorHeader.vue'
+import EditorWorkspace from '@/components/Editor/EditorWorkspace.vue'
 
 @Component({
   components: {
-    Sidebar, EditorHeader
+    EditorWorkspace,
+    Sidebar,
+    EditorHeader
   }
 })
 export default class EditorView extends Vue {

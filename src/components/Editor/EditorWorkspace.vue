@@ -1,18 +1,30 @@
 <template>
   <div class="workspace">
-    <HeaderWidget></HeaderWidget>
+    <HeaderWidget :data="data[0]"></HeaderWidget>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 import HeaderWidget from '@/components/Widgets/HeaderWidget.vue'
+import IWidget from '@/store/types/Widget'
 
 @Component({
   components: { HeaderWidget }
 })
 export default class EditorWorkspace extends Vue {
+  @Prop()
+  public inputData?: Array<IWidget>
 
+  public data = [] as Array<IWidget>
+
+  public created () {
+    this.data = this.inputData || []
+
+    if (!this.data.length) {
+      this.data = [{} as IWidget, {} as IWidget]
+    }
+  }
 }
 </script>
 

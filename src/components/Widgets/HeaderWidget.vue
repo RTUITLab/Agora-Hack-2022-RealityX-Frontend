@@ -1,5 +1,5 @@
 <template>
-  <div class="ws-header" :style="`height: ${data.data.height}px; margin-bottom: ${data.data.marginBottom}px`">
+  <div :id="data.id + '_' + data.number" class="ws-header" :style="`height: ${data.data.height}px; margin-bottom: ${data.data.marginBottom}px`">
     <div class="ws-header_logo-wrapper">
       <img v-if="data.data.logoUrl" :height="`${data.data.height - 40 * 2}px`" :src="data.data.logoUrl" alt="Site logo">
     </div>
