@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div v-for="(imageUrl, i) in imageUrls" :key="imageUrl + i">
+      <div v-for="(imageUrl, i) in imageUrls" :key="imageUrl + i" style="margin: 8px 0 16px">
         <label :ref="imageUrl + i">Изображение {{i + 1}}
           <br>
           <image-skeleton v-if="!imageUrl" height="96"></image-skeleton>
@@ -80,7 +80,7 @@ export default class GalleryModal extends Vue {
   }
 
   saveData () {
-    this.data.data.images = this.imageUrls
+    this.data.data.images = this.imageUrls.filter((url) => !!url)
     this.$root.$emit('update', this.data)
     this.$emit('close')
   }
@@ -109,5 +109,16 @@ export default class GalleryModal extends Vue {
 .add {
   width: max-content;
   padding: 12px 14px;
+}
+
+label {
+  color: #718096;
+  font-size: 14px;
+
+  br {
+    content: " ";
+    margin-top: 8px;
+    display: block;
+  }
 }
 </style>

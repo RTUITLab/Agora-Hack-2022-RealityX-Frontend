@@ -81,6 +81,9 @@ export default class ImageModal extends Vue {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+label {
+  color: #718096;
+  font-size: 14px;
+}
 </style>
