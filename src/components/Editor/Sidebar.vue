@@ -32,7 +32,7 @@
         <li class="input">
           <label>Отступ между блоками
             <br>
-            <input type="text" v-model="data.style.blockGap" @change="(e) => saveSettings('bkg', e)">
+            <input type="text" v-model="data.style.blockGap" @change="(e) => saveSettings('', e)">
           </label>
         </li>
         <li class="input">
