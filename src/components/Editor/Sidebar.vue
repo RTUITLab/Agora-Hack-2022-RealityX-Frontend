@@ -73,6 +73,7 @@ input[type=checkbox] {
 }
 
 aside {
+  top: 0;
   width: 360px;
   height: 100vh;
   padding: 28px;
@@ -82,6 +83,7 @@ aside {
 
   border-right: 1px solid #E2E8F0;
   box-sizing: border-box;
+  z-index: 100;
 
   img {
     width: 172px;

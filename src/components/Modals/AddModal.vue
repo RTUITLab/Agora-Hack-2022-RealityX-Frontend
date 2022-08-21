@@ -6,7 +6,7 @@
     </template>
     <template slot="body">
       <div class="row" style="gap: 20px; justify-content: center">
-        <img src="../../assets/Slider.svg">
+        <img src="../../assets/Slider.svg" @click="addWidget('Slider')">
         <img src="../../assets/Text_block.svg" @click="addWidget('Text')">
         <img src="../../assets/Image.svg" @click="addWidget('Image')">
       </div>

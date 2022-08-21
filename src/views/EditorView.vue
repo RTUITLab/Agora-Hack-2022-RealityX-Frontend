@@ -1,10 +1,10 @@
 <template>
   <main>
-    <sidebar :data="project"></sidebar>
     <div style="padding-left: 360px">
       <editor-header></editor-header>
       <editor-workspace :input-data="project.widgets"></editor-workspace>
     </div>
+    <sidebar :data="project"></sidebar>
   </main>
 </template>
 
@@ -19,6 +19,7 @@ import { createDefaultText } from '@/store/types/TextWidget'
 import { createDefaultImage } from '@/store/types/ImageWidget'
 import { createDefaultGallery } from '@/store/types/GalleryWidget'
 import { createDefaultCards } from '@/store/types/CardsWidget'
+import { createDefaultSlider } from '@/store/types/SliderWidget'
 
 @Component({
   components: {
@@ -53,6 +54,9 @@ export default class EditorView extends Vue {
           break
         case WidgetTypes.CARDS:
           this.project.widgets.splice(this.project.widgets.length - 1, 0, createDefaultCards())
+          break
+        case WidgetTypes.SLIDER:
+          this.project.widgets.splice(this.project.widgets.length - 1, 0, createDefaultSlider())
           break
       }
 

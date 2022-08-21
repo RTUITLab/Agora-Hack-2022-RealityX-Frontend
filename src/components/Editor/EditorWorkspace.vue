@@ -26,6 +26,7 @@ import TextWidget from '@/components/Widgets/TextWidget.vue'
 import ImageWidget from '@/components/Widgets/ImageWidget.vue'
 import GalleryWidget from '@/components/Widgets/GalleryWidget.vue'
 import CardsWidget from '@/components/Widgets/CardsWidget.vue'
+import SliderWidget from '@/components/Widgets/SliderWidget.vue'
 
 @Component({
   components: { TextWidget, ImageWidget, GalleryWidget, CardsWidget, AddModal, FooterWidget, HeaderWidget }
@@ -53,6 +54,8 @@ export default class EditorWorkspace extends Vue {
         return GalleryWidget
       case WidgetTypes.CARDS:
         return CardsWidget
+      case WidgetTypes.SLIDER:
+        return SliderWidget
     }
   }
 }

@@ -16,9 +16,10 @@ import TextModal from '@/components/Modals/TextModal.vue'
 import ImageModal from '@/components/Modals/ImageModal.vue'
 import GalleryModal from '@/components/Modals/GalleryModal.vue'
 import CardsModal from '@/components/Modals/CardsModal.vue'
+import SliderModal from '@/components/Modals/SliderModal.vue'
 
 @Component({
-  components: { TextModal, ImageModal, GalleryModal, CardsModal, FooterModal, HeaderModal }
+  components: { TextModal, ImageModal, GalleryModal, CardsModal, SliderModal, FooterModal, HeaderModal }
 })
 export default class StructureItem extends Vue {
   @Prop({
@@ -57,6 +58,8 @@ export default class StructureItem extends Vue {
         return GalleryModal
       case WidgetTypes.CARDS:
         return CardsModal
+      case WidgetTypes.SLIDER:
+        return SliderModal
       default:
         return 'br'
     }
