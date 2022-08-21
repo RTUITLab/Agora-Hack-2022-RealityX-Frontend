@@ -2,7 +2,7 @@ import IWidget, { WidgetTypes } from '@/store/types/Widget'
 
 export interface ILink {
   url: string,
-  name: string
+  title: string
 }
 
 export interface IHeaderWidget extends IWidget {
@@ -30,10 +30,10 @@ export function createDefaultHeader (): IHeaderWidget {
       links: [
         {
           url: 'sdfsd',
-          name: 'Yandex'
+          title: 'Yandex'
         },
         {
-          name: 'Google',
+          title: 'Google',
           url: 'sdfsdf'
         }
       ],
@@ -95,7 +95,7 @@ export function headerToTemplate (data: IHeaderWidget): string {
     <ul class="ws-header_links" style="padding: 0; margin: 0">
       ${data.data.links.map((link) => `
       <li class="ws-header_link">
-        <a href="${link.url}" style="text-decoration: none; font-size: 18px; color: ${data.data.linksColor}">${link.name}</a>
+        <a href="${link.url}" style="text-decoration: none; font-size: 18px; color: ${data.data.linksColor}">${link.title}</a>
       </li>
       `).join('')}
     </ul>

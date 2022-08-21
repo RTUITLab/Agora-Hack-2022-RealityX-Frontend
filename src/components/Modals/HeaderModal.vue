@@ -41,16 +41,16 @@
             <label>Название</label>
           </div>
         </div>
-        <div class="row" style="margin: 4px 0" v-for="link in links" :key="link.name">
+        <div class="row" style="margin: 4px 0" v-for="link in links" :key="link.title">
           <div style="width: 50%">
             <input type="text" v-model="link.url">
           </div>
           <div>
-            <input type="text" v-model="link.name">
+            <input type="text" v-model="link.title">
           </div>
         </div>
       </div>
-      <button @click="links.push({ url: '', name: ''})" style="width: max-content; margin: 8px 0 0">Добавить</button>
+      <button @click="links.push({ url: '', title: ''})" style="width: max-content; margin: 8px 0 0">Добавить</button>
     </template>
     <template slot="footer">
       <button class="blue-btn" style="width: max-content" @click="saveData">Сохранить</button>
@@ -85,7 +85,6 @@ export default class HeaderModal extends Vue {
 
   async uploadFile (e: any) {
     const file = e.target.files[0] as File
-    console.log((await this.$store.dispatch(UPLOAD_FILE, file)) || '')
 
     this.logoUrl = (await this.$store.dispatch(UPLOAD_FILE, file)) || '/Logo0.svg'
   }

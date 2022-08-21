@@ -4,8 +4,8 @@
       <img v-if="data.data.logoUrl" :height="`${data.data.height - 40 * 2}px`" :src="data.data.logoUrl" alt="Site logo">
     </div>
     <ul class="ws-header_links" style="padding: 0; margin: 0">
-      <li v-for="link in data.data.links" :key="link.name" class="ws-header_link">
-        <a :href="link.url" :style="`text-decoration: none; font-size: 18px; color: ${data.data.linksColor}`">{{link.name}}</a>
+      <li v-for="link in data.data.links" :key="link.title" class="ws-header_link">
+        <a :href="link.url" :style="`text-decoration: none; font-size: 18px; color: ${data.data.linksColor}`">{{link.title}}</a>
       </li>
     </ul>
   </header>
