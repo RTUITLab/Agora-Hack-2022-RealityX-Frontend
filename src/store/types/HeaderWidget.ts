@@ -39,7 +39,7 @@ export function createDefaultHeader (): IHeaderWidget {
       ],
       linksColor: '#505050',
       logoUrl: '',
-      background: '#FFFFFF'
+      background: '#F6F9FB'
     },
     template: ''
   }
