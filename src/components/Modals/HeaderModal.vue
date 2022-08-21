@@ -23,7 +23,7 @@
         <label>Логотип
           <br>
           <image-skeleton v-if="!logoUrl" height="96"></image-skeleton>
-          <img v-else src="../../assets/Logo0.svg" style="width: 100%; height: 52px">
+          <img v-else :src="logoUrl" style="width: 100%; height: 52px">
           <input hidden type="file" @change="uploadFile">
         </label>
       </div>
@@ -64,6 +64,7 @@ import BaseModal from '@/components/Modals/BaseModal.vue'
 import { IHeaderWidget, ILink } from '@/store/types/HeaderWidget'
 import ImageSkeleton from '@/components/ImageSkeleton.vue'
 import ColorPicker from '@/components/Forms/ColorPicker.vue'
+import { UPLOAD_FILE } from '@/store'
 
 @Component({
   components: { ColorPicker, ImageSkeleton, BaseModal }
@@ -82,8 +83,11 @@ export default class HeaderModal extends Vue {
     this.links = this.data.data.links
   }
 
-  uploadFile () {
-    this.logoUrl = '/Logo0.svg'
+  async uploadFile (e: any) {
+    const file = e.target.files[0] as File
+    console.log((await this.$store.dispatch(UPLOAD_FILE, file)) || '')
+
+    this.logoUrl = (await this.$store.dispatch(UPLOAD_FILE, file)) || '/Logo0.svg'
   }
 
   saveData () {
