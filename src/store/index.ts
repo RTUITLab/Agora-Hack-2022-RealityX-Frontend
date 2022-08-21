@@ -14,6 +14,7 @@ export const SET_PROJECT = 'SET_PROJECT'
 export const LOGIN = 'LOGIN'
 export const CREATE_PROJECT = 'CREATE_PROJECT'
 export const SAVE_PROJECT = 'SAVE_PROJECT'
+export const UPLOAD_FILE = 'UPLOAD_FILE'
 
 const baseUrl = process.env.baseUrl || 'https://agora.reality-x.space/api'
 
@@ -107,6 +108,31 @@ export default new Vuex.Store({
 
         if (result.status === 200) {
           return true
+        }
+      } catch (e) {
+        console.log(e)
+      }
+
+      return false
+    },
+    [UPLOAD_FILE]: async ({ commit }, file: File) => {
+      const fd = new FormData()
+      fd.append('name', file.name)
+      fd.append('image', file, file.name)
+
+      const headers = new Headers()
+      headers.append('Authorization', 'Bearer ' + sessionStorage.getItem('access_token'))
+
+      try {
+        const result = await fetch(baseUrl + '/app/products', {
+          method: 'POST',
+          body: fd,
+          headers: headers
+        })
+
+        if (result.status === 200) {
+          const data = await result.json()
+          return data.product.image
         }
       } catch (e) {
         console.log(e)

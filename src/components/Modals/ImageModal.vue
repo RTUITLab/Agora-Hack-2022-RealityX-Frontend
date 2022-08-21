@@ -53,6 +53,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 import BaseModal from '@/components/Modals/BaseModal.vue'
 import { IImageWidget } from '@/store/types/ImageWidget'
 import ImageSkeleton from '@/components/ImageSkeleton.vue'
+import { UPLOAD_FILE } from '@/store'
 
 @Component({
   components: { ImageSkeleton, BaseModal }
@@ -75,8 +76,10 @@ export default class ImageModal extends Vue {
     this.$emit('close')
   }
 
-  uploadFile () {
-    this.imageUrl = '/Logo0.svg'
+  async uploadFile (e: any) {
+    const file = e.target.files[0] as File
+
+    this.imageUrl = (await this.$store.dispatch(UPLOAD_FILE, file)) || '/Logo0.svg'
   }
 }
 </script>
