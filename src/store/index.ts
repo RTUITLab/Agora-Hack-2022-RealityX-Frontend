@@ -23,6 +23,9 @@ export default new Vuex.Store({
     id: 0
   },
   getters: {
+    [GET_PREVIEW_URL]: (state) => {
+      return baseUrl + '/app/preview?page_id=' + state.id
+    }
   },
   mutations: {
     [SET_TOKEN]: (state, token) => {
@@ -63,7 +66,7 @@ export default new Vuex.Store({
       const id = Math.floor(Math.random() * 1001).toString()
       fd.append('project_id', id)
       fd.append('json', JSON.stringify(jsonData))
-      fd.append('template', template)
+      fd.append('template', JSON.stringify({ template, models: {} }))
 
       const headers = new Headers()
       headers.append('Authorization', 'Bearer ' + sessionStorage.getItem('access_token'))
@@ -90,7 +93,7 @@ export default new Vuex.Store({
       const fd = new FormData()
       fd.append('page_id', sessionStorage.getItem('project_id')!)
       fd.append('json', JSON.stringify(jsonData))
-      fd.append('template', template)
+      fd.append('template', JSON.stringify({ template, models: {} }))
 
       const headers = new Headers()
       headers.append('Authorization', 'Bearer ' + sessionStorage.getItem('access_token'))

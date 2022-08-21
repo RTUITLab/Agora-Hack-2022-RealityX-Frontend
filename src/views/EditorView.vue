@@ -25,7 +25,7 @@ import { cardsToTemplate, createDefaultCards, staticCardsTemplate } from '@/stor
 import { createDefaultSlider, sliderToTemplate, staticSliderTemplate } from '@/store/types/SliderWidget'
 import { headerToTemplate, staticHeaderTemplate } from '@/store/types/HeaderWidget'
 import { footerToTemplate, staticFooterTemplate } from '@/store/types/FooterWidget'
-import { CREATE_PROJECT, SAVE_PROJECT } from '@/store'
+import { CREATE_PROJECT, GET_PREVIEW_URL, SAVE_PROJECT } from '@/store'
 
 @Component({
   components: {
@@ -83,8 +83,8 @@ export default class EditorView extends Vue {
 
     this.$root.$on('build', () => {
       this.$store.dispatch(SAVE_PROJECT, { jsonData: {}, template: this.buildTemplate() })
-      window.open(this.$store.getters[], '_blank').focus();
-
+      console.log(this.$store.getters[GET_PREVIEW_URL])
+      window.open(this.$store.getters[GET_PREVIEW_URL], '_blank')!.focus()
     })
   }
 
