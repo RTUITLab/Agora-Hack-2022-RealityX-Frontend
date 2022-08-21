@@ -21,7 +21,7 @@ import IWidget, { WidgetTypes } from '@/store/types/Widget'
 import { createDefaultText, staticTextTemplate, textToTemplate } from '@/store/types/TextWidget'
 import { createDefaultImage, imageToTemplate, staticImageTemplate } from '@/store/types/ImageWidget'
 import { createDefaultGallery, galleryToTemplate, staticGalleryTemplate } from '@/store/types/GalleryWidget'
-import { createDefaultCards } from '@/store/types/CardsWidget'
+import { cardsToTemplate, createDefaultCards, staticCardsTemplate } from '@/store/types/CardsWidget'
 import { createDefaultSlider } from '@/store/types/SliderWidget'
 import { headerToTemplate, staticHeaderTemplate } from '@/store/types/HeaderWidget'
 import { footerToTemplate, staticFooterTemplate } from '@/store/types/FooterWidget'
@@ -83,7 +83,8 @@ export default class EditorView extends Vue {
         staticFooterTemplate() +
         staticTextTemplate() +
         staticImageTemplate() +
-        staticGalleryTemplate()
+        staticGalleryTemplate() +
+        staticCardsTemplate()
 
       const body = this.project.widgets.map((widget) => {
         switch (widget.type) {
@@ -97,6 +98,8 @@ export default class EditorView extends Vue {
             return imageToTemplate(widget)
           case WidgetTypes.GALLERY:
             return galleryToTemplate(widget)
+          case WidgetTypes.CARDS:
+            return cardsToTemplate(widget)
           default:
             return ''
         }
