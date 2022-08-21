@@ -17,7 +17,7 @@ import Sidebar from '@/components/Editor/Sidebar.vue'
 import EditorHeader from '@/components/Editor/EditorHeader.vue'
 import EditorWorkspace from '@/components/Editor/EditorWorkspace.vue'
 import { createProject, IProject } from '@/store/types/Project'
-import IWidget, { WidgetTypes } from '@/store/types/Widget'
+import IWidget, { staticForPage, WidgetTypes } from '@/store/types/Widget'
 import { createDefaultText, staticTextTemplate, textToTemplate } from '@/store/types/TextWidget'
 import { createDefaultImage, imageToTemplate, staticImageTemplate } from '@/store/types/ImageWidget'
 import { createDefaultGallery, galleryToTemplate, staticGalleryTemplate } from '@/store/types/GalleryWidget'
@@ -79,7 +79,8 @@ export default class EditorView extends Vue {
     })
 
     this.$root.$on('build', () => {
-      const staticContent = staticHeaderTemplate() +
+      const staticContent = staticForPage() +
+        staticHeaderTemplate() +
         staticFooterTemplate() +
         staticTextTemplate() +
         staticImageTemplate() +
