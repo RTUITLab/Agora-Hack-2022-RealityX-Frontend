@@ -1,7 +1,7 @@
 <template>
   <header>
     <h1>Site title</h1>
-    <button class="publish blue-btn">Опубликовать <img src="../../assets/Check.svg"></button>
+    <button class="publish blue-btn" @click="$root.$emit('build')">Опубликовать <img src="../../assets/Check.svg"></button>
   </header>
 </template>
 

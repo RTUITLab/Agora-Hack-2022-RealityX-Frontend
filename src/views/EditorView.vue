@@ -23,6 +23,8 @@ import { createDefaultImage } from '@/store/types/ImageWidget'
 import { createDefaultGallery } from '@/store/types/GalleryWidget'
 import { createDefaultCards } from '@/store/types/CardsWidget'
 import { createDefaultSlider } from '@/store/types/SliderWidget'
+import { headerToTemplate, staticHeaderTemplate } from '@/store/types/HeaderWidget'
+import { footerToTemplate, staticFooterTemplate } from '@/store/types/FooterWidget'
 
 @Component({
   components: {
@@ -74,6 +76,23 @@ export default class EditorView extends Vue {
       }
 
       this.update()
+    })
+
+    this.$root.$on('build', () => {
+      const staticContent = staticHeaderTemplate() + staticFooterTemplate()
+
+      const body = this.project.widgets.map((widget) => {
+        switch (widget.type) {
+          case WidgetTypes.HEADER:
+            return headerToTemplate(widget)
+          case WidgetTypes.FOOTER:
+            return footerToTemplate(widget)
+          default:
+            return ''
+        }
+      }).join('\n')
+
+      console.log(staticContent + body)
     })
   }
 
