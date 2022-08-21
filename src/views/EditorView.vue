@@ -25,6 +25,7 @@ import { cardsToTemplate, createDefaultCards, staticCardsTemplate } from '@/stor
 import { createDefaultSlider, sliderToTemplate, staticSliderTemplate } from '@/store/types/SliderWidget'
 import { headerToTemplate, staticHeaderTemplate } from '@/store/types/HeaderWidget'
 import { footerToTemplate, staticFooterTemplate } from '@/store/types/FooterWidget'
+import { CREATE_PROJECT } from '@/store'
 
 @Component({
   components: {
@@ -38,6 +39,8 @@ export default class EditorView extends Vue {
 
   public created () {
     this.project = createProject('', '', 'example')
+
+    this.$store.dispatch(CREATE_PROJECT, { jsonData: {}, template: this.buildTemplate() })
 
     this.$root.$on('update', (e: IWidget) => {
       const index = this.project.widgets.findIndex(value => value.id === e.id)
@@ -79,43 +82,47 @@ export default class EditorView extends Vue {
     })
 
     this.$root.$on('build', () => {
-      const staticContent = staticForPage() +
-        staticHeaderTemplate() +
-        staticFooterTemplate() +
-        staticTextTemplate() +
-        staticImageTemplate() +
-        staticGalleryTemplate() +
-        staticCardsTemplate() +
-        staticSliderTemplate()
-
-      const body = this.project.widgets.map((widget) => {
-        switch (widget.type) {
-          case WidgetTypes.HEADER:
-            return headerToTemplate(widget)
-          case WidgetTypes.FOOTER:
-            return footerToTemplate(widget)
-          case WidgetTypes.TEXT:
-            return textToTemplate(widget)
-          case WidgetTypes.IMAGE:
-            return imageToTemplate(widget)
-          case WidgetTypes.GALLERY:
-            return galleryToTemplate(widget)
-          case WidgetTypes.CARDS:
-            return cardsToTemplate(widget)
-          case WidgetTypes.SLIDER:
-            return sliderToTemplate(widget)
-          default:
-            return ''
-        }
-      }).join('\n')
-
-      console.log(generatePage(staticContent, body, this.project))
+      this.buildTemplate()
     })
   }
 
   update () {
     this.project = JSON.parse(JSON.stringify(this.project))
     this.$forceUpdate()
+  }
+
+  buildTemplate () {
+    const staticContent = staticForPage() +
+      staticHeaderTemplate() +
+      staticFooterTemplate() +
+      staticTextTemplate() +
+      staticImageTemplate() +
+      staticGalleryTemplate() +
+      staticCardsTemplate() +
+      staticSliderTemplate()
+
+    const body = this.project.widgets.map((widget) => {
+      switch (widget.type) {
+        case WidgetTypes.HEADER:
+          return headerToTemplate(widget)
+        case WidgetTypes.FOOTER:
+          return footerToTemplate(widget)
+        case WidgetTypes.TEXT:
+          return textToTemplate(widget)
+        case WidgetTypes.IMAGE:
+          return imageToTemplate(widget)
+        case WidgetTypes.GALLERY:
+          return galleryToTemplate(widget)
+        case WidgetTypes.CARDS:
+          return cardsToTemplate(widget)
+        case WidgetTypes.SLIDER:
+          return sliderToTemplate(widget)
+        default:
+          return ''
+      }
+    }).join('\n')
+
+    return generatePage(staticContent, body, this.project)
   }
 }
 </script>
