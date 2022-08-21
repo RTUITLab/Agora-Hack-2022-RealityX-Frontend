@@ -5,9 +5,24 @@
       <label for="settings"><span class="dot green"></span>Настройки</label>
       <input type="checkbox" id="settings">
       <ul>
-        <li>Свойство</li>
-        <li>Свойство</li>
-        <li>Свойство</li>
+        <li class="input">
+          <label>Название
+            <br>
+            <input type="text" v-model="data.settings.title" @change="saveSettings">
+          </label>
+        </li>
+        <li class="input">
+          <label>Описание
+            <br>
+            <textarea type="text" v-model="data.settings.description" @change="saveSettings"></textarea>
+          </label>
+        </li>
+        <li class="input">
+          <label>Идентификатор
+            <br>
+            <input type="text" v-model="data.settings.id" @change="saveSettings">
+          </label>
+        </li>
       </ul>
     </section>
     <section>
