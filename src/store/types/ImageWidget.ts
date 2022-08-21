@@ -28,3 +28,13 @@ export function createDefaultImage (): IImageWidget {
     template: ''
   }
 }
+
+export function staticImageTemplate (): string {
+  return ''
+}
+
+export function imageToTemplate (data: IImageWidget): string {
+  return `<div style="display: flex; margin: ${data.data.marginTop}px 80px ${data.data.marginBottom}px">
+    <img src="${data.data.imageUrl}" style="margin: auto; max-width:${data.data.width}px; max-height:${data.data.height}px; width: 100%">
+  </div>`
+}
