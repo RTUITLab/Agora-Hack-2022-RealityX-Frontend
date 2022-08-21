@@ -2,7 +2,7 @@
   <ul :id="data.id + '_' + data.number" class="ws-cards" :style="`margin: ${data.data.marginTop}px 80px ${data.data.marginBottom}px; gap: ${data.data.marginBetween}px`">
     <li v-for="item in data.data.cards" :key="item.title" class="ws-card">
       <img :src="item.imageUrl" style="height: 110px; width: 160px; object-fit: scale-down">
-      <a class="ws-cards_link" :href="item.url">{{ item.title }}</a>
+      <a class="ws-cards_link" target="_blank" :href="item.url">{{ item.title }}</a>
       <div class="ws-cards_footer">
         <div class="ws-cards_price-section">
           <h4>Цена</h4>

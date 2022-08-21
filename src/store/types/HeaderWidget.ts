@@ -95,7 +95,7 @@ export function headerToTemplate (data: IHeaderWidget): string {
     <ul class="ws-header_links" style="padding: 0; margin: 0">
       ${data.data.links.map((link) => `
       <li class="ws-header_link">
-        <a href="${link.url}" style="text-decoration: none; font-size: 18px; color: ${data.data.linksColor}">${link.title}</a>
+        <a href="${link.url}" target="_blank" style="text-decoration: none; font-size: 18px; color: ${data.data.linksColor}">${link.title}</a>
       </li>
       `).join('')}
     </ul>

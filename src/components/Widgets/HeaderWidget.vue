@@ -5,7 +5,7 @@
     </div>
     <ul class="ws-header_links" style="padding: 0; margin: 0">
       <li v-for="link in data.data.links" :key="link.title" class="ws-header_link">
-        <a :href="link.url" :style="`text-decoration: none; font-size: 18px; color: ${data.data.linksColor}`">{{link.title}}</a>
+        <a :href="link.url" target="_blank" :style="`text-decoration: none; font-size: 18px; color: ${data.data.linksColor}`">{{link.title}}</a>
       </li>
     </ul>
   </header>
