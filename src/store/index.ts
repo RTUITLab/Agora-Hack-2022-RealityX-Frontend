@@ -53,7 +53,7 @@ export default new Vuex.Store({
 
       return false
     },
-    [CREATE_PROJECT]: async (context, { jsonData, template }) => {
+    [CREATE_PROJECT]: async ({ commit }, { jsonData, template }) => {
       const fd = new FormData()
 
       const id = Math.floor(Math.random() * 1001).toString()
@@ -72,8 +72,9 @@ export default new Vuex.Store({
         })
 
         if (result.status === 200) {
-
-          return id
+          const data = await result.json()
+          commit(SET_PROJECT, data.page.id)
+          return data.page.id
         }
       } catch (e) {
         console.log(e)
