@@ -32,9 +32,9 @@ const router = new VueRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const user = sessionStorage.getItem('user')
+  const token = sessionStorage.getItem('access_token')
 
-  if (!user && to.name !== 'login') {
+  if (!token && to.name !== 'login') {
     next('/login')
   } else next()
 })

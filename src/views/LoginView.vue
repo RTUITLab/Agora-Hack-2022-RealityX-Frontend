@@ -19,16 +19,16 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { LOGIN } from '@/store'
 
 @Component({})
 export default class LoginView extends Vue {
   name = ''
   pass = ''
 
-  public login () {
-    if (this.name === 'qwerty') {
-      sessionStorage.setItem('user', this.name)
-      this.$router.push('/')
+  public async login () {
+    if (await this.$store.dispatch(LOGIN, { login: this.name, password: this.pass })) {
+      await this.$router.push('/')
     }
   }
 }
