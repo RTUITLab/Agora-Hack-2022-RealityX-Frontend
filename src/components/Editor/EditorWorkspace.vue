@@ -10,6 +10,7 @@
       @edit="() => edit(item.id)"
       @up="() => swapItems(i + 1, i)"
       @down="() => swapItems(i + 1, i + 2)"
+      @remove="() => removeItem(i + 1)"
     ></widget-wrapper>
 
     <button class="add black-btn" id="create-block-btn" @click="showAddModal = true">Добавить блок</button>
@@ -71,6 +72,11 @@ export default class EditorWorkspace extends Vue {
 
       this.$root.$emit('update-all', this.data)
     }
+  }
+
+  removeItem (index: number) {
+    this.data.splice(index, 1)
+    this.$root.$emit('update-all', this.data)
   }
 
   edit (id: string) {
