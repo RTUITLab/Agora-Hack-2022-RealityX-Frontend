@@ -38,7 +38,7 @@ export function createDefaultHeader (): IHeaderWidget {
         }
       ],
       linksColor: '#505050',
-      logoUrl: '',
+      logoUrl: '/Logo0.svg',
       background: '#F6F9FB'
     },
     template: ''
