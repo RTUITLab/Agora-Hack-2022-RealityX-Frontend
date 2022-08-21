@@ -16,7 +16,7 @@ export const CREATE_PROJECT = 'CREATE_PROJECT'
 export const SAVE_PROJECT = 'SAVE_PROJECT'
 export const UPLOAD_FILE = 'UPLOAD_FILE'
 
-const baseUrl = process.env.baseUrl || 'https://agora.reality-x.space/api'
+const baseUrl = process.env.BASE_URL || 'https://agora.reality-x.space/api'
 
 export default new Vuex.Store({
   state: {
