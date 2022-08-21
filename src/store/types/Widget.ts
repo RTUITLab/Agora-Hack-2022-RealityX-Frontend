@@ -49,8 +49,10 @@ export function staticForPage () {
   }
 
   #app {
-    height: 100%;
-    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
   }
 
   input[type=text], input[type=password], textarea {

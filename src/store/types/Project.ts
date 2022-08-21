@@ -52,7 +52,9 @@ export function generatePage (statics: string, content: string, project: IProjec
     ${statics}
   </head>
   <body>
-  ${content}
+    <div id="app" style="gap: ${project.style.blockGap}px">
+      ${content}
+    </div>
   </body>
   </html>
   `

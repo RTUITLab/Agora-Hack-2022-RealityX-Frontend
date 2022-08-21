@@ -8,19 +8,19 @@
         <li class="input">
           <label>Название
             <br>
-            <input type="text" v-model="data.settings.title" @change="saveSettings">
+            <input type="text" v-model="data.settings.title" @change="(e) => saveSettings('ttl', e)">
           </label>
         </li>
         <li class="input">
           <label>Описание
             <br>
-            <textarea type="text" v-model="data.settings.description" @change="saveSettings"></textarea>
+            <textarea type="text" v-model="data.settings.description" @change="(e) => saveSettings('dsc', e)"></textarea>
           </label>
         </li>
         <li class="input">
           <label>Идентификатор
             <br>
-            <input type="text" v-model="data.settings.id" @change="saveSettings">
+            <input type="text" v-model="data.settings.id" @change="(e) => saveSettings('id', e)">
           </label>
         </li>
       </ul>
@@ -122,6 +122,15 @@ export default class Sidebar extends Vue {
         break
       case 'bkg':
         this.data.style.blockGap = e.data
+        break
+      case 'ttl':
+        this.data.settings.title = e.data
+        break
+      case 'id':
+        this.data.settings.id = e.data
+        break
+      case 'dsc':
+        this.data.settings.description = e.data
         break
     }
     this.$root.$emit('update-settings', this.data)

@@ -1,7 +1,7 @@
 <template>
   <main>
     <div style="padding-left: 360px">
-      <editor-header></editor-header>
+      <editor-header :title="project.settings.title"></editor-header>
       <editor-workspace
         :input-data="project.widgets"
         :style="`background: ${project.style.backgroundColor}; gap: ${project.style.blockGap}px`"

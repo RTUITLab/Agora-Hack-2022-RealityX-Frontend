@@ -1,16 +1,19 @@
 <template>
   <header>
-    <h1>Site title</h1>
+    <h1>{{title}}</h1>
     <button class="publish blue-btn" @click="$root.$emit('build')">Опубликовать <img src="../../assets/Check.svg"></button>
   </header>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class EditorHeader extends Vue {
-
+  @Prop({
+    default: ''
+  })
+  title!: string
 }
 </script>
 

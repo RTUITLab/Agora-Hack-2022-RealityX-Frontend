@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -27,8 +28,10 @@
     }
 
     #app {
-      height: 100%;
-      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     input[type=text], input[type=password], textarea {
@@ -290,47 +293,300 @@
 
 </head>
 <body>
-<div id="header + '_' + 0" class="ws-header" style="height: 120px; margin-bottom: 0px; background: #F6F9FB">
-  <div class="ws-header_logo-wrapper">
+<div id="app" style="gap: 20px">
+  <div id="header + '_' + 0" class="ws-header" style="height: 120px; margin-bottom: 0px; background: #F6F9FB">
+    <div class="ws-header_logo-wrapper">
 
+    </div>
+    <ul class="ws-header_links" style="padding: 0; margin: 0">
+
+      <li class="ws-header_link">
+        <a href="sdfsd" style="text-decoration: none; font-size: 18px; color: #505050">Yandex</a>
+      </li>
+
+      <li class="ws-header_link">
+        <a href="sdfsdf" style="text-decoration: none; font-size: 18px; color: #505050">Google</a>
+      </li>
+
+    </ul>
   </div>
-  <ul class="ws-header_links" style="padding: 0; margin: 0">
+  <ul id="hi87aoJ6ou_0" class="ws-slider" style="margin: 0px 80px 0px;">
 
-    <li class="ws-header_link">
-      <a href="sdfsd" style="text-decoration: none; font-size: 18px; color: #505050">Yandex</a>
+    <li class="slide slider-hi87aoJ6ou">
+      <img src="https://via.placeholder.com/540x176?text=1" style="width: 100%; aspect-ratio: 3.0681818181818183">
     </li>
 
-    <li class="ws-header_link">
-      <a href="sdfsdf" style="text-decoration: none; font-size: 18px; color: #505050">Google</a>
+
+    <li class="slide slider-hi87aoJ6ou">
+      <img src="https://via.placeholder.com/540x176?text=2" style="width: 100%; aspect-ratio: 3.0681818181818183">
+    </li>
+
+
+    <li class="slide slider-hi87aoJ6ou">
+      <img src="https://via.placeholder.com/540x176?text=3" style="width: 100%; aspect-ratio: 3.0681818181818183">
+    </li>
+
+    <a class="prev" onclick="plusSlides(-1, 'hi87aoJ6ou')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'hi87aoJ6ou')">&#10095;</a>
+  </ul>
+  <script>
+    slideIndex['hi87aoJ6ou'] = 1
+    showSlides(1, 'hi87aoJ6ou')
+  </script>
+  <div style="margin: 0 80px">
+    <h3 style="color: #000000; font-size: 28px; margin: 0px 0 0px 0"
+    >Текстовый виджет</h3>
+    <p style="color: #505050; font-size: 18px; margin: 0 0 0px 0"
+    >Введите любой текст</p>
+  </div>
+  <div style="display: flex; margin: 0px 80px 0px">
+    <img src="https://via.placeholder.com/540x300" style="margin: auto; max-width:540px; max-height:300px; width: 100%">
+  </div>
+  <ul id="RkmDYlr1se + '_' + 0" class="ws-cards" style="margin: 0px 80px 0px; gap: 20px">
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
+    </li>
+
+
+    <li class="ws-card">
+      <img src="https://via.placeholder.com/245" style="height: 110px; width: 160px; object-fit: scale-down">
+      <a class="ws-cards_link" href="/no">Товар</a>
+      <div class="ws-cards_footer">
+        <div class="ws-cards_price-section">
+          <h4>Цена</h4>
+          <p>12 000&nbsp;₽</p>
+        </div>
+        <button>
+          <img src="http://localhost:8080/Cart.svg">
+        </button>
+      </div>
     </li>
 
   </ul>
-</div>
-<ul id="2wzYUMcqgh_0" class="ws-slider" style="margin: 0px 80px 0px;">
+  <div id="zFQ5fGqRaO + '_' + 0" class="gallery" style="margin: 0px 80px 0px; gap: 20px">
 
-  <li class="slide slider-2wzYUMcqgh">
-    <img src="/Logo0.svg" style="width: 100%; aspect-ratio: 3.0681818181818183">
-  </li>
+    <img src="https://via.placeholder.com/300" style="aspect-ratio: 1; max-width: 300px; width: 100%">
 
 
-  <li class="slide slider-2wzYUMcqgh">
-    <img src="https://via.placeholder.com/540x176?text=2" style="width: 100%; aspect-ratio: 3.0681818181818183">
-  </li>
+    <img src="https://via.placeholder.com/300" style="aspect-ratio: 1; max-width: 300px; width: 100%">
 
 
-  <li class="slide slider-2wzYUMcqgh">
-    <img src="https://via.placeholder.com/540x176?text=3" style="width: 100%; aspect-ratio: 3.0681818181818183">
-  </li>
+    <img src="https://via.placeholder.com/300" style="aspect-ratio: 1; max-width: 300px; width: 100%">
 
-  <a class="prev" onclick="plusSlides(-1, '2wzYUMcqgh')">&#10094;</a>
-  <a class="next" onclick="plusSlides(1, '2wzYUMcqgh')">&#10095;</a>
-</ul>
-<script>
-  slideIndex['2wzYUMcqgh'] = 1
-  showSlides(1, '2wzYUMcqgh')
-</script>
-<div id="footer + '_' + 0" class="ws-footer" style="height: 120px; margin-top: 0px; background: #1F223B">
-  <div class="ws-footer_text" style="color: #FFFFFFB2">Собственный подвал</div>
+
+    <img src="https://via.placeholder.com/300" style="aspect-ratio: 1; max-width: 300px; width: 100%">
+
+  </div>
+  <footer id="footer + '_' + 0" class="ws-footer" style="height: 120px; margin-top: 0px; background: #1F223B">
+    <div class="ws-footer_text" style="color: #FFFFFFB2">Собственный подвал</div>
+  </footer>
 </div>
 </body>
 </html>
+
