@@ -8,19 +8,19 @@
         <li class="input">
           <label>Название
             <br>
-            <input type="text" v-model="data.settings.title" @change="(e) => saveSettings('ttl', e)">
+            <input type="text" v-model="data.settings.title" @change="(e) => saveSettings('', e)">
           </label>
         </li>
         <li class="input">
           <label>Описание
             <br>
-            <textarea type="text" v-model="data.settings.description" @change="(e) => saveSettings('dsc', e)"></textarea>
+            <textarea v-model="data.settings.description" @change="(e) => saveSettings('', e)"></textarea>
           </label>
         </li>
         <li class="input">
           <label>Идентификатор
             <br>
-            <input type="text" v-model="data.settings.id" @change="(e) => saveSettings('id', e)">
+            <input type="text" v-model="data.settings.id" @change="(e) => saveSettings('', e)">
           </label>
         </li>
       </ul>

@@ -51,6 +51,10 @@ export default class EditorView extends Vue {
     this.$root.$on('update-settings', (e: IProject) => {
       this.project.widgets[0].data.background = e.style.headerColor
       this.project.widgets[this.project.widgets.length - 1].data.background = e.style.footerColor
+
+      this.project.style = e.style
+      this.project.settings = e.settings
+
       this.update()
     })
 
@@ -83,7 +87,6 @@ export default class EditorView extends Vue {
 
     this.$root.$on('build', async () => {
       await this.$store.dispatch(SAVE_PROJECT, { jsonData: {}, template: this.buildTemplate() })
-      console.log(this.$store.getters[GET_PREVIEW_URL])
       window.open(this.$store.getters[GET_PREVIEW_URL], '_blank')!.focus()
     })
   }
