@@ -12,7 +12,7 @@
       @down="() => swapItems(i + 1, i + 2)"
     ></widget-wrapper>
 
-    <button class="add black-btn" @click="showAddModal = true">Добавить блок</button>
+    <button class="add black-btn" id="create-block-btn" @click="showAddModal = true">Добавить блок</button>
     <add-modal v-if="showAddModal" @close="showAddModal = false"></add-modal>
 
     <footer-widget :input-data="data[data.length - 1]"></footer-widget>

@@ -5,20 +5,19 @@
       <label for="settings"><span class="dot green"></span>Настройки</label>
       <input type="checkbox" id="settings">
       <ul>
-        <li>sdasd</li>
-        <li>sdasd</li>
-        <li>sdasd</li>
-        <li>sdasd</li>
+        <li>Свойство</li>
+        <li>Свойство</li>
+        <li>Свойство</li>
       </ul>
     </section>
     <section>
       <label for="styling"><span class="dot blue"></span>Стилизация</label>
       <input type="checkbox" id="styling">
       <ul>
-        <li>sdasd</li>
-        <li>sdasd</li>
-        <li>sdasd</li>
-        <li>sdasd</li>
+        <li>Свойство</li>
+        <li>Свойство</li>
+        <li>Свойство</li>
+        <li>Свойство</li>
       </ul>
     </section>
     <section>
@@ -28,16 +27,24 @@
         <li v-for="widget in data.widgets" :key="widget.id">
           <structure-item :data="widget"></structure-item>
         </li>
+        <li>
+          <button
+            class="black-btn"
+            style="padding: 12px 14px; margin-top: 16px"
+            @click="createBlock"
+          >Добавить</button>
+        </li>
       </ul>
     </section>
     <section>
       <label for="scripts"><span class="dot red"></span>Сторонние скрипты</label>
       <input type="checkbox" id="scripts">
       <ul>
-        <li>sdasd</li>
-        <li>sdasd</li>
-        <li>sdasd</li>
-        <li>sdasd</li>
+        <li>Свойство</li>
+        <li>Свойство</li>
+        <li>
+          <button class="black-btn" style="padding: 12px 14px; margin-top: 16px">Добавить</button>
+        </li>
       </ul>
     </section>
   </aside>
@@ -57,6 +64,10 @@ export default class Sidebar extends Vue {
     required: true
   })
   public data!: IProject
+
+  createBlock () {
+    document.getElementById('create-block-btn')!.click()
+  }
 }
 </script>
 
