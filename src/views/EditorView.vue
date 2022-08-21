@@ -16,7 +16,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import Sidebar from '@/components/Editor/Sidebar.vue'
 import EditorHeader from '@/components/Editor/EditorHeader.vue'
 import EditorWorkspace from '@/components/Editor/EditorWorkspace.vue'
-import { createProject, IProject } from '@/store/types/Project'
+import { createProject, generatePage, IProject } from '@/store/types/Project'
 import IWidget, { staticForPage, WidgetTypes } from '@/store/types/Widget'
 import { createDefaultText, staticTextTemplate, textToTemplate } from '@/store/types/TextWidget'
 import { createDefaultImage, imageToTemplate, staticImageTemplate } from '@/store/types/ImageWidget'
@@ -109,7 +109,7 @@ export default class EditorView extends Vue {
         }
       }).join('\n')
 
-      console.log(staticContent + body)
+      console.log(generatePage(staticContent, body, this.project))
     })
   }
 

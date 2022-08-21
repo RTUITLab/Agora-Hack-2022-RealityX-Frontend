@@ -138,7 +138,7 @@ export function cardsToTemplate (data: ICardsWidget): string {
           <p>${Number(item.price).toLocaleString()}&nbsp;₽</p>
         </div>
         <button>
-          <img src="${location.origin + '/img/Cart.svg'}">
+          <img src="${location.origin + '/Cart.svg'}">
         </button>
       </div>
     </li>

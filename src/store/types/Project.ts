@@ -39,3 +39,21 @@ export function createProject (title: string, description: string, id: string): 
     links: []
   }
 }
+
+export function generatePage (statics: string, content: string, project: IProject): string {
+  return `
+  <!DOCTYPE html>
+  <html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>${project.settings.title}</title>
+    <meta name="description" content="${project.settings.description}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    ${statics}
+  </head>
+  <body>
+  ${content}
+  </body>
+  </html>
+  `
+}

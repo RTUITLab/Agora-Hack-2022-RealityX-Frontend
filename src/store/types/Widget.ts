@@ -30,6 +30,7 @@ export function staticForPage () {
   return `
   <style>
   * {
+    font-family: 'Segoe UI', sans-serif;
     color: #19171D;
   }
 

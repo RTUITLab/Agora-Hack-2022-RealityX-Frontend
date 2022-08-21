@@ -1,291 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Example</title>
-</head>
-<body>
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-  * {
-    color: #19171D;
-  }
+  <style>
+    * {
+      font-family: 'Segoe UI', sans-serif;
+      color: #19171D;
+    }
 
-  html {
-    height: 100vh;
-    padding: 0;
-    margin: 0;
+    html {
+      height: 100vh;
+      padding: 0;
+      margin: 0;
 
-    overflow-x: hidden;
-  }
+      overflow-x: hidden;
+    }
 
-  body {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-  }
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
 
-  #app {
-    height: 100%;
-    font-family: 'Inter', sans-serif;
-  }
+    #app {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+    }
 
-  input[type=text], input[type=password], textarea {
-    width: 100%;
-    margin-top: 8px;
-    padding: 16px;
-    border: 1px solid #19171D1A;
-    border-radius: 12px;
-    box-sizing: border-box;
+    input[type=text], input[type=password], textarea {
+      width: 100%;
+      margin-top: 8px;
+      padding: 16px;
+      border: 1px solid #19171D1A;
+      border-radius: 12px;
+      box-sizing: border-box;
 
-    color: #19171D;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
+      color: #19171D;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
 
-    outline: none;
+      outline: none;
 
-    transition: 0.1s;
-  }
+      transition: 0.1s;
+    }
 
-  button {
-    width: 100%;
-    border: none;
-    border-radius: 12px;
-    font-size: 14px;
-    padding: 16px;
-    box-sizing: border-box;
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      font-size: 14px;
+      padding: 16px;
+      box-sizing: border-box;
 
-    cursor: pointer;
+      cursor: pointer;
 
-    transition: .1s;
-  }
+      transition: .1s;
+    }
 
-  button.blue-btn {
-    background-color: #3870FF;
-    color: white;
-  }
+    button.blue-btn {
+      background-color: #3870FF;
+      color: white;
+    }
 
-  button.blue-btn:active {
-    background-color: #759bff;
-  }
+    button.blue-btn:active {
+      background-color: #759bff;
+    }
 
-  button.white-btn {
-    background-color: #FFFFFF;
-    color: #718096;
-    border: 1px solid #71809633;
-  }
+    button.white-btn {
+      background-color: #FFFFFF;
+      color: #718096;
+      border: 1px solid #71809633;
+    }
 
-  button.white-btn:active {
-    background-color: #e3e1e1;
-  }
+    button.white-btn:active {
+      background-color: #e3e1e1;
+    }
 
-  button.black-btn {
-    background-color: #19171D;
-    color: #FFFFFF;
-  }
+    button.black-btn {
+      background-color: #19171D;
+      color: #FFFFFF;
+    }
 
-  button.black-btn:active {
-    background-color: #35323b;
-  }
+    button.black-btn:active {
+      background-color: #35323b;
+    }
 
-  button.link {
-    margin-left: 16px;
-    padding: 0;
-    width: max-content;
+    button.link {
+      margin-left: 16px;
+      padding: 0;
+      width: max-content;
 
-    color: #3870FF;
-    background: none;
-  }
+      color: #3870FF;
+      background: none;
+    }
 
-  .row {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-</style>
-
-<style>
-  .ws-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    padding: 40px 80px;
-    box-sizing: border-box;
-  }
-
-  .ws-header_logo-wrapper {
-    margin-right: auto;
-  }
-
-  .ws-header_link {
-    list-style: none;
-    display: inline-block;
-    margin-left: 32px;
-  }
-
-  @media (max-width: 1042px) {
-    .ws-header {
-      flex-direction: column;
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
       gap: 16px;
-      height: auto !important;
+      margin-bottom: 16px;
+    }
+  </style>
+
+  <style>
+    .ws-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      padding: 40px 80px;
+      box-sizing: border-box;
     }
 
     .ws-header_logo-wrapper {
-      margin: auto;
+      margin-right: auto;
     }
 
     .ws-header_link {
-      display: block;
-      margin: 8px auto;
+      list-style: none;
+      display: inline-block;
+      margin-left: 32px;
     }
-  }
-</style>
 
-<style>
-  .ws-footer {
-    display: flex;
-    padding: 0 80px;
-  }
+    @media (max-width: 1042px) {
+      .ws-header {
+        flex-direction: column;
+        gap: 16px;
+        height: auto !important;
+      }
 
-  .ws-footer_text {
-    margin: auto;
-    text-align: center;
-  }
-</style>
+      .ws-header_logo-wrapper {
+        margin: auto;
+      }
 
-<style>
-  .gallery {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
-
-<style>
-  .ws-cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .ws-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 20px 30px;
-    list-style: none;
-
-    background: white;
-    box-shadow: 0 2px 40px 0 #0000000D;
-    border-radius: 8px;
-
-    transition: .2s;
-  }
-
-  .ws-card:hover {
-    box-shadow: 0 2px 40px 20px #0000000D;
-  }
-
-  .ws-cards_link {
-    text-decoration: none;
-    margin: 10px 0;
-    width: 100%;
-
-    font-size: 16px;
-  }
-
-  .ws-cards_footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .ws-cards_price-section h4 {
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #718096;
-  }
-
-  .ws-cards_price-section p {
-    color: #3870FF;
-    font-weight: 600;
-  }
-
-  .ws-cards_price-section h4, .ws-cards_price-section p {
-    margin: 0;
-  }
-
-  .ws-cards_footer button {
-    padding: 8px;
-    width: min-content;
-  }
-</style>
-
-<style>
-  .ws-slider {
-    position: relative;
-  }
-  .slide {
-    display: none;
-    list-style: none;
-  }
-
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 8px 16px;
-    margin-top: -22px;
-    color: grey;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 50%;
-    left: 56px;
-    user-select: none;
-  }
-
-  .next {
-    left: auto;
-    right: 16px;
-  }
-
-  .prev:hover, .next:hover {
-    background-color: #f1f1f1;
-    color: black;
-  }
-</style>
-<script>
-  let slideIndex = {}
-
-  function plusSlides (value, sliderId) {
-    slideIndex[sliderId] += value
-    showSlides(slideIndex[sliderId], sliderId)
-  }
-
-  function showSlides (value, sliderId) {
-    const slides = document.getElementsByClassName('slider-' + sliderId)
-
-    if (value > slides.length) {
-      slideIndex[sliderId] = 1
+      .ws-header_link {
+        display: block;
+        margin: 8px auto;
+      }
     }
-    if (value < 1) {
-      slideIndex[sliderId] = slides.length
+  </style>
+
+  <style>
+    .ws-footer {
+      display: flex;
+      padding: 0 80px;
     }
-    for (let i = 0; i < slides.length; i++) {
-      slides.item(i).style.display = i === slideIndex[sliderId] - 1 ? 'block' : 'none'
+
+    .ws-footer_text {
+      margin: auto;
+      text-align: center;
     }
-  }
-</script>
+  </style>
+
+  <style>
+    .gallery {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
+  <style>
+    .ws-cards {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .ws-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px 30px;
+      list-style: none;
+
+      background: white;
+      box-shadow: 0 2px 40px 0 #0000000D;
+      border-radius: 8px;
+
+      transition: .2s;
+    }
+
+    .ws-card:hover {
+      box-shadow: 0 2px 40px 20px #0000000D;
+    }
+
+    .ws-cards_link {
+      text-decoration: none;
+      margin: 10px 0;
+      width: 100%;
+
+      font-size: 16px;
+    }
+
+    .ws-cards_footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .ws-cards_price-section h4 {
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #718096;
+    }
+
+    .ws-cards_price-section p {
+      color: #3870FF;
+      font-weight: 600;
+    }
+
+    .ws-cards_price-section h4, .ws-cards_price-section p {
+      margin: 0;
+    }
+
+    .ws-cards_footer button {
+      padding: 8px;
+      width: min-content;
+    }
+  </style>
+
+  <style>
+    .ws-slider {
+      position: relative;
+    }
+    .slide {
+      display: none;
+      list-style: none;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 8px 16px;
+      margin-top: -22px;
+      color: grey;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 50%;
+      left: 56px;
+      user-select: none;
+    }
+
+    .next {
+      left: auto;
+      right: 16px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: #f1f1f1;
+      color: black;
+    }
+  </style>
+  <script>
+    let slideIndex = {}
+
+    function plusSlides (value, sliderId) {
+      slideIndex[sliderId] += value
+      showSlides(slideIndex[sliderId], sliderId)
+    }
+
+    function showSlides (value, sliderId) {
+      const slides = document.getElementsByClassName('slider-' + sliderId)
+
+      if (value > slides.length) {
+        slideIndex[sliderId] = 1
+      }
+      if (value < 1) {
+        slideIndex[sliderId] = slides.length
+      }
+      for (let i = 0; i < slides.length; i++) {
+        slides.item(i).style.display = i === slideIndex[sliderId] - 1 ? 'block' : 'none'
+      }
+    }
+  </script>
+
+</head>
+<body>
 <div id="header + '_' + 0" class="ws-header" style="height: 120px; margin-bottom: 0px; background: #F6F9FB">
   <div class="ws-header_logo-wrapper">
 
@@ -302,32 +306,31 @@
 
   </ul>
 </div>
-<ul id="cg0A5aOEzY_0" class="ws-slider" style="margin: 0px 80px 0px;">
+<ul id="2wzYUMcqgh_0" class="ws-slider" style="margin: 0px 80px 0px;">
 
-  <li class="slide slider-cg0A5aOEzY">
-    <img src="https://via.placeholder.com/540x176?text=1" style="width: 100%; aspect-ratio: 3.0681818181818183">
+  <li class="slide slider-2wzYUMcqgh">
+    <img src="/Logo0.svg" style="width: 100%; aspect-ratio: 3.0681818181818183">
   </li>
 
 
-  <li class="slide slider-cg0A5aOEzY">
+  <li class="slide slider-2wzYUMcqgh">
     <img src="https://via.placeholder.com/540x176?text=2" style="width: 100%; aspect-ratio: 3.0681818181818183">
   </li>
 
 
-  <li class="slide slider-cg0A5aOEzY">
+  <li class="slide slider-2wzYUMcqgh">
     <img src="https://via.placeholder.com/540x176?text=3" style="width: 100%; aspect-ratio: 3.0681818181818183">
   </li>
 
-  <a class="prev" onclick="plusSlides(-1, 'cg0A5aOEzY')">&#10094;</a>
-  <a class="next" onclick="plusSlides(1, 'cg0A5aOEzY')">&#10095;</a>
+  <a class="prev" onclick="plusSlides(-1, '2wzYUMcqgh')">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, '2wzYUMcqgh')">&#10095;</a>
 </ul>
 <script>
-  slideIndex['cg0A5aOEzY'] = 1
-  showSlides(1, 'cg0A5aOEzY')
+  slideIndex['2wzYUMcqgh'] = 1
+  showSlides(1, '2wzYUMcqgh')
 </script>
 <div id="footer + '_' + 0" class="ws-footer" style="height: 120px; margin-top: 0px; background: #1F223B">
   <div class="ws-footer_text" style="color: #FFFFFFB2">Собственный подвал</div>
 </div>
-
 </body>
 </html>
