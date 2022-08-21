@@ -33,11 +33,13 @@
         </div>
       </div>
       <div>
-        <label>Изображение
+        <label ref="imgChange">Изображение
           <br>
           <image-skeleton v-if="!imageUrl" height="96"></image-skeleton>
           <img v-else :src="imageUrl" style="width: 100%">
           <input hidden type="file" @change="uploadFile">
+
+          <button style="width: min-content; padding: 12px 14px" class="black-btn add" @click="() => $refs.imgChange.click()">Добавить</button>
         </label>
       </div>
     </template>
