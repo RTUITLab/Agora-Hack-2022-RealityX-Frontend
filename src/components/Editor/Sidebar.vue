@@ -118,7 +118,10 @@ export default class Sidebar extends Vue {
   created () {
     this.data = this.inputData
 
-    this.$watch('inputData', (newData) => (this.data = newData))
+    this.$watch('inputData', (newData) => {
+      this.data = newData
+      this.$forceUpdate()
+    })
   }
 
   saveSettings (field: string, e: any) {
