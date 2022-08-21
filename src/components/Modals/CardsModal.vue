@@ -32,7 +32,7 @@
             <br style="margin-bottom: 8px">
             <image-skeleton v-if="!card.imageUrl" height="96"></image-skeleton>
             <img v-else :src="card.imageUrl" style="width: 100%">
-            <input hidden type="file" @change="() => uploadFile(i)">
+            <input hidden type="file" @change="(e) => uploadFile(e, i)">
           </label>
           <div class="card_data">
             <div>
@@ -78,6 +78,7 @@ import BaseModal from '@/components/Modals/BaseModal.vue'
 import { createDefaultCard, ICard, ICardsWidget } from '@/store/types/CardsWidget'
 import ImageSkeleton from '@/components/ImageSkeleton.vue'
 import SequenceController from '@/components/Forms/SequenceController.vue'
+import { UPLOAD_FILE } from '@/store'
 
 @Component({
   components: { SequenceController, ImageSkeleton, BaseModal }
@@ -100,8 +101,9 @@ export default class CardsModal extends Vue {
     this.$emit('close')
   }
 
-  uploadFile (index: number) {
-    this.cards[index].imageUrl = '/Logo0.svg'
+  async uploadFile (e: any, index: number) {
+    const file = e.target.files[0] as File
+    this.cards[index].imageUrl = (await this.$store.dispatch(UPLOAD_FILE, file)) || '/Logo0.svg'
     this.$forceUpdate()
   }
 
