@@ -3,6 +3,9 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// getters
+export const GET_PREVIEW_URL = 'GET_PREVIEW_URL'
+
 // mutations
 export const SET_TOKEN = 'SET_TOKEN'
 export const SET_PROJECT = 'SET_PROJECT'
@@ -10,6 +13,7 @@ export const SET_PROJECT = 'SET_PROJECT'
 // actions
 export const LOGIN = 'LOGIN'
 export const CREATE_PROJECT = 'CREATE_PROJECT'
+export const SAVE_PROJECT = 'SAVE_PROJECT'
 
 const baseUrl = process.env.baseUrl || 'https://agora.reality-x.space/api'
 
@@ -75,6 +79,31 @@ export default new Vuex.Store({
           const data = await result.json()
           commit(SET_PROJECT, data.page.id)
           return data.page.id
+        }
+      } catch (e) {
+        console.log(e)
+      }
+
+      return false
+    },
+    [SAVE_PROJECT]: async ({ commit }, { jsonData, template }) => {
+      const fd = new FormData()
+      fd.append('page_id', sessionStorage.getItem('project_id')!)
+      fd.append('json', JSON.stringify(jsonData))
+      fd.append('template', template)
+
+      const headers = new Headers()
+      headers.append('Authorization', 'Bearer ' + sessionStorage.getItem('access_token'))
+
+      try {
+        const result = await fetch(baseUrl + '/app/pages/update', {
+          method: 'POST',
+          body: fd,
+          headers: headers
+        })
+
+        if (result.status === 200) {
+          return true
         }
       } catch (e) {
         console.log(e)
