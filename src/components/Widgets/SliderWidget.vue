@@ -1,6 +1,6 @@
 <template>
   <ul :id="data.id + '_' + data.number" class="ws-slider" :style="`margin: ${data.data.marginTop}px 80px ${data.data.marginBottom}px;`">
-    <li v-for="imageUrl in data.data.imageUrls" :key="imageUrl" :class="`slide slider-${data.id}`">
+    <li v-for="imageUrl in data.data.imageUrls" :key="imageUrl" :ref="`slider-${data.id}`" :class="`slide slider-${data.id}`">
       <img :src="imageUrl" :style="`width: 100%; aspect-ratio: ${data.data.width / data.data.height}`">
     </li>
     <a class="prev" @click="() => plusSlides(-1, data.id)">&#10094;</a>
@@ -24,7 +24,13 @@ export default class SliderWidget extends Vue {
   public created () {
     this.data = this.inputData
 
-    this.$watch('inputData', (newData) => (this.data = newData))
+    this.$watch('inputData', (newData) => {
+      this.data = newData
+
+      this.$forceUpdate()
+      this.slideIndex[this.data.id] = 1
+      this.showSlides(1, this.data.id)
+    })
   }
 
   public mounted () {
@@ -38,7 +44,7 @@ export default class SliderWidget extends Vue {
   }
 
   public showSlides (value: number, sliderId: string) {
-    const slides = document.getElementsByClassName('slider-' + sliderId) as any
+    const slides = this.$refs[`slider-${sliderId}`] as any
 
     if (value > slides.length) {
       this.slideIndex[sliderId] = 1
@@ -47,7 +53,7 @@ export default class SliderWidget extends Vue {
       this.slideIndex[sliderId] = slides.length
     }
     for (let i = 0; i < slides.length; i++) {
-      slides.item(i).style.display = i === this.slideIndex[sliderId] - 1 ? 'block' : 'none'
+      slides[i].style.display = i === this.slideIndex[sliderId] - 1 ? 'block' : 'none'
     }
   }
 }

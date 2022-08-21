@@ -38,7 +38,7 @@
           <br>
           <image-skeleton v-if="!imageUrl" height="96"></image-skeleton>
           <img v-else :src="imageUrl" style="width: 100%">
-          <input hidden type="file" @change="() => uploadFile(i)">
+          <input hidden type="file" @change="(e) => uploadFile(e, i)">
         </label>
         <sequence-controller
           @add="() => $refs[imageUrl + i][0].click()"
@@ -63,6 +63,7 @@ import BaseModal from '@/components/Modals/BaseModal.vue'
 import { ISliderWidget } from '@/store/types/SliderWidget'
 import ImageSkeleton from '@/components/ImageSkeleton.vue'
 import SequenceController from '@/components/Forms/SequenceController.vue'
+import { UPLOAD_FILE } from '@/store'
 
 @Component({
   components: { SequenceController, ImageSkeleton, BaseModal }
@@ -80,13 +81,14 @@ export default class SliderModal extends Vue {
   }
 
   saveData () {
-    this.data.data.imageUrls = this.imageUrls.filter((url) => !!url)
+    this.data.data.imageUrls = this.imageUrls
     this.$root.$emit('update', this.data)
     this.$emit('close')
   }
 
-  uploadFile (index: number) {
-    this.imageUrls.splice(index, 1, '/Logo0.svg')
+  async uploadFile (e: any, index: number) {
+    const file = e.target.files[0] as File
+    this.imageUrls.splice(index, 1, (await this.$store.dispatch(UPLOAD_FILE, file)) || '/Logo0.svg')
   }
 
   removeItem (index: number) {
