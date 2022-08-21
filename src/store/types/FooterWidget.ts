@@ -5,7 +5,8 @@ export interface IFooterWidget extends IWidget {
     height: number,
     marginTop: number,
     textColor: string,
-    text: string
+    text: string,
+    background: string
   }
 }
 
@@ -21,7 +22,8 @@ export function createDefaultFooter (): IFooterWidget {
       height: 120,
       marginTop: 0,
       text: 'Собственный подвал',
-      textColor: '#505050'
+      textColor: '#505050',
+      background: '#1F223B'
     },
     template: ''
   }

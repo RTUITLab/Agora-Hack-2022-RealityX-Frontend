@@ -14,10 +14,30 @@
       <label for="styling"><span class="dot blue"></span>Стилизация</label>
       <input type="checkbox" id="styling">
       <ul>
-        <li>Свойство</li>
-        <li>Свойство</li>
-        <li>Свойство</li>
-        <li>Свойство</li>
+        <li class="input">
+          <label>Отступ между блоками
+            <br>
+            <input type="text" v-model="data.style.blockGap" @change="(e) => saveSettings('bkg', e)">
+          </label>
+        </li>
+        <li class="input">
+          <label>Цвет фона
+            <br>
+            <color-picker :value="data.style.backgroundColor" :small="true" @input="(e) => saveSettings('bgc', e)"></color-picker>
+          </label>
+        </li>
+        <li class="input">
+          <label>Цвет шапки
+            <br>
+            <color-picker :value="data.style.headerColor" :small="true" @input="(e) => saveSettings('hdc', e)"></color-picker>
+          </label>
+        </li>
+        <li class="input">
+          <label>Цвет подвала
+            <br>
+            <color-picker :value="data.style.footerColor" :small="true" @input="(e) => saveSettings('ftc', e)"></color-picker>
+          </label>
+        </li>
       </ul>
     </section>
     <section>
@@ -54,16 +74,43 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import StructureItem from '@/components/Editor/StructureItem.vue'
 import { IProject } from '@/store/types/Project'
+import ColorPicker from '@/components/Forms/ColorPicker.vue'
 
 @Component({
   name: 'sidebar',
-  components: { StructureItem }
+  components: { ColorPicker, StructureItem }
 })
 export default class Sidebar extends Vue {
   @Prop({
     required: true
   })
+  public inputData!: IProject
+
   public data!: IProject
+
+  created () {
+    this.data = this.inputData
+
+    this.$watch('inputData', (newData) => (this.data = newData))
+  }
+
+  saveSettings (field: string, e: any) {
+    switch (field) {
+      case 'bgc':
+        this.data.style.backgroundColor = e
+        break
+      case 'hdc':
+        this.data.style.headerColor = e
+        break
+      case 'ftc':
+        this.data.style.footerColor = e
+        break
+      case 'bkg':
+        this.data.style.blockGap = e.data
+        break
+    }
+    this.$root.$emit('update-settings', this.data)
+  }
 
   createBlock () {
     document.getElementById('create-block-btn')!.click()
@@ -121,7 +168,7 @@ aside {
     }
   }
 
-  label {
+  section > label {
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 600;
@@ -142,6 +189,25 @@ aside {
       margin: 0;
       padding: 0 16px;
       box-sizing: border-box;
+
+      &.input {
+        margin-bottom: 16px;
+
+        label {
+          color: #718096;
+          font-size: 14px;
+
+          br {
+            content: " ";
+            display: block;
+            margin-bottom: 0;
+          }
+
+          input {
+            padding: 8px 12px;
+          }
+        }
+      }
     }
   }
 }

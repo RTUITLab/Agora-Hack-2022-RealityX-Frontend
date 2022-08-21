@@ -11,7 +11,8 @@ export interface IHeaderWidget extends IWidget {
     marginBottom: number,
     logoUrl: string,
     linksColor: string,
-    links: Array<ILink>
+    links: Array<ILink>,
+    background: string
   }
 }
 
@@ -37,7 +38,8 @@ export function createDefaultHeader (): IHeaderWidget {
         }
       ],
       linksColor: '#505050',
-      logoUrl: ''
+      logoUrl: '',
+      background: '#FFFFFF'
     },
     template: ''
   }

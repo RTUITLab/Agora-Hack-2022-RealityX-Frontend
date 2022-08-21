@@ -9,7 +9,7 @@ export interface IProjectSettings {
 }
 
 export interface IProjectStyle {
-  blockGap: number,
+  blockGap: string,
   backgroundColor: string,
   headerColor: string,
   footerColor: string,
@@ -30,7 +30,7 @@ export function createProject (title: string, description: string, id: string): 
       description: description
     },
     style: {
-      blockGap: 20,
+      blockGap: '20',
       backgroundColor: '#F6F9FB',
       headerColor: '#F6F9FB',
       footerColor: '#1F223B'

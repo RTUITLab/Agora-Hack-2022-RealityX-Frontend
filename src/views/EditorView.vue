@@ -2,9 +2,12 @@
   <main>
     <div style="padding-left: 360px">
       <editor-header></editor-header>
-      <editor-workspace :input-data="project.widgets"></editor-workspace>
+      <editor-workspace
+        :input-data="project.widgets"
+        :style="`background: ${project.style.backgroundColor}; gap: ${project.style.blockGap}px`"
+      ></editor-workspace>
     </div>
-    <sidebar :data="project"></sidebar>
+    <sidebar :input-data="project"></sidebar>
   </main>
 </template>
 
@@ -37,14 +40,18 @@ export default class EditorView extends Vue {
     this.$root.$on('update', (e: IWidget) => {
       const index = this.project.widgets.findIndex(value => value.id === e.id)
       this.project.widgets.splice(index, 1, e)
-      this.project = JSON.parse(JSON.stringify(this.project))
-      this.$forceUpdate()
+      this.update()
+    })
+
+    this.$root.$on('update-settings', (e: IProject) => {
+      this.project.widgets[0].data.background = e.style.headerColor
+      this.project.widgets[this.project.widgets.length - 1].data.background = e.style.footerColor
+      this.update()
     })
 
     this.$root.$on('update-all', (e: Array<IWidget>) => {
       this.project.widgets = e
-      this.project = JSON.parse(JSON.stringify(this.project))
-      this.$forceUpdate()
+      this.update()
     })
 
     this.$root.$on('add', (e: WidgetTypes) => {
@@ -66,9 +73,13 @@ export default class EditorView extends Vue {
           break
       }
 
-      this.project = JSON.parse(JSON.stringify(this.project))
-      this.$forceUpdate()
+      this.update()
     })
+  }
+
+  update () {
+    this.project = JSON.parse(JSON.stringify(this.project))
+    this.$forceUpdate()
   }
 }
 </script>

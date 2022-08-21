@@ -1,7 +1,7 @@
 <template>
  <div class="color-picker">
-   <input type="text" disabled :value="color">
-   <label :for="id" :style="`background: ${color}`">
+   <input type="text" disabled :value="color" :style="`${small ? 'padding: 8px 12px; width: calc(100% - 38px)' : ''}`">
+   <label :for="id" :style="`background: ${color}; ${small ? 'height: 38px; width: 38px' : ''}`">
       &nbsp;
    </label>
    <input type="color" :id="id" hidden v-model="color" @input="$emit('input', color)">
@@ -17,6 +17,11 @@ export default class ColorPicker extends Vue {
   @Prop({})
   value!: string
 
+  @Prop({
+    default: false
+  })
+  small!: boolean
+
   color = '#000000'
   id = makeId(10)
 
@@ -31,6 +36,7 @@ export default class ColorPicker extends Vue {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 8px;
 
   input[type=text] {
     width: 112px;
