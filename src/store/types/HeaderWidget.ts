@@ -1,6 +1,7 @@
 import IWidget, { WidgetTypes } from '@/store/types/Widget'
 
 export interface ILink {
+  id?: string,
   url: string,
   title: string
 }

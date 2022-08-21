@@ -75,10 +75,11 @@
       <label for="scripts"><span class="dot red"></span>Сторонние скрипты</label>
       <input type="checkbox" id="scripts">
       <ul>
-        <li>Свойство</li>
-        <li>Свойство</li>
+        <li v-for="link in data.links" :key="link.id">
+          <links-item :data="link"></links-item>
+        </li>
         <li>
-          <button class="black-btn" style="padding: 12px 14px; margin-top: 16px">Добавить</button>
+          <button class="black-btn" style="padding: 12px 14px; margin-top: 16px" @click="createLink">Добавить</button>
         </li>
       </ul>
     </section>
@@ -90,10 +91,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 import StructureItem from '@/components/Editor/StructureItem.vue'
 import { IProject } from '@/store/types/Project'
 import ColorPicker from '@/components/Forms/ColorPicker.vue'
+import LinksItem from '@/components/Editor/LinksItem.vue'
+import ScriptsModal from '@/components/Modals/ScriptsModal.vue'
+import { makeId } from '@/store/types/Widget'
 
 @Component({
   name: 'sidebar',
-  components: { ColorPicker, StructureItem }
+  components: { ScriptsModal, LinksItem, ColorPicker, StructureItem }
 })
 export default class Sidebar extends Vue {
   @Prop({
@@ -102,6 +106,8 @@ export default class Sidebar extends Vue {
   public inputData!: IProject
 
   public data!: IProject
+
+  public scriptModalShow = false
 
   created () {
     this.data = this.inputData
@@ -138,6 +144,10 @@ export default class Sidebar extends Vue {
 
   createBlock () {
     document.getElementById('create-block-btn')!.click()
+  }
+
+  createLink () {
+    this.data.links.push({ title: 'Код', url: '', id: makeId(10) })
   }
 }
 </script>

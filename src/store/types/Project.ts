@@ -41,6 +41,8 @@ export function createProject (title: string, description: string, id: string): 
 }
 
 export function generatePage (statics: string, content: string, project: IProject): string {
+  const scripts = project.links.map((link) => (link.url)).join('\n')
+  console.log(scripts)
   return `
   <!DOCTYPE html>
   <html lang="ru">
@@ -50,6 +52,7 @@ export function generatePage (statics: string, content: string, project: IProjec
     <meta name="description" content="${project.settings.description}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     ${statics}
+    ${scripts}
   </head>
   <body>
     <div id="app" style="gap: ${project.style.blockGap}px">

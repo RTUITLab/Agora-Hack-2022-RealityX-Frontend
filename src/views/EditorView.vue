@@ -23,7 +23,7 @@ import { createDefaultImage, imageToTemplate, staticImageTemplate } from '@/stor
 import { createDefaultGallery, galleryToTemplate, staticGalleryTemplate } from '@/store/types/GalleryWidget'
 import { cardsToTemplate, createDefaultCards, staticCardsTemplate } from '@/store/types/CardsWidget'
 import { createDefaultSlider, sliderToTemplate, staticSliderTemplate } from '@/store/types/SliderWidget'
-import { headerToTemplate, staticHeaderTemplate } from '@/store/types/HeaderWidget'
+import { headerToTemplate, ILink, staticHeaderTemplate } from '@/store/types/HeaderWidget'
 import { footerToTemplate, staticFooterTemplate } from '@/store/types/FooterWidget'
 import { CREATE_PROJECT, GET_PREVIEW_URL, SAVE_PROJECT } from '@/store'
 
@@ -55,6 +55,12 @@ export default class EditorView extends Vue {
       this.project.style = e.style
       this.project.settings = e.settings
 
+      this.update()
+    })
+
+    this.$root.$on('update-links', (e: ILink) => {
+      const index = this.project.links.findIndex(value => value.id === e.id)
+      this.project.links.splice(index, 1, e)
       this.update()
     })
 
