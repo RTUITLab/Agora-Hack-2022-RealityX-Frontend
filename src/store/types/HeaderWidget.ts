@@ -88,7 +88,7 @@ export function staticHeaderTemplate (): string {
 }
 
 export function headerToTemplate (data: IHeaderWidget): string {
-  return `<div id="${data.id} + '_' + ${data.number}" class="ws-header" style="height: ${data.data.height}px; margin-bottom: ${data.data.marginBottom}px; background: ${data.data.background}">
+  return `<header id="${data.id} + '_' + ${data.number}" class="ws-header" style="height: ${data.data.height}px; margin-bottom: ${data.data.marginBottom}px; background: ${data.data.background}">
     <div class="ws-header_logo-wrapper">
       ${data.data.logoUrl ? `<img height="${data.data.height - 40 * 2}px" src="${data.data.logoUrl}" alt="Site logo">` : ''}
     </div>
@@ -99,5 +99,5 @@ export function headerToTemplate (data: IHeaderWidget): string {
       </li>
       `).join('')}
     </ul>
-  </div>`
+  </header>`
 }

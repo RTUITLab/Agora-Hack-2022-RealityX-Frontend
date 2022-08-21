@@ -1,7 +1,7 @@
 <template>
-  <div :id="data.id + '_' + data.number" class="ws-footer" :style="`height: ${data.data.height}px; margin-top: ${data.data.marginTop}px; background: ${data.data.background}`">
+  <footer :id="data.id + '_' + data.number" class="ws-footer" :style="`height: ${data.data.height}px; margin-top: ${data.data.marginTop}px; background: ${data.data.background}`">
     <div class="ws-footer_text" :style="`color: ${data.data.textColor}`">{{data.data.text}}</div>
-  </div>
+  </footer>
 </template>
 
 <script lang="ts">

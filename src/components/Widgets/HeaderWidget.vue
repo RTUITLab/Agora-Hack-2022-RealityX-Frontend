@@ -1,5 +1,5 @@
 <template>
-  <div :id="data.id + '_' + data.number" class="ws-header" :style="`height: ${data.data.height}px; margin-bottom: ${data.data.marginBottom}px; background: ${data.data.background}`">
+  <header :id="data.id + '_' + data.number" class="ws-header" :style="`height: ${data.data.height}px; margin-bottom: ${data.data.marginBottom}px; background: ${data.data.background}`">
     <div class="ws-header_logo-wrapper">
       <img v-if="data.data.logoUrl" :height="`${data.data.height - 40 * 2}px`" :src="data.data.logoUrl" alt="Site logo">
     </div>
@@ -8,7 +8,7 @@
         <a :href="link.url" :style="`text-decoration: none; font-size: 18px; color: ${data.data.linksColor}`">{{link.name}}</a>
       </li>
     </ul>
-  </div>
+  </header>
 </template>
 
 <script lang="ts">
