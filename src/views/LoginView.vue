@@ -5,7 +5,7 @@
         <img alt="Логотип конструктора" src="../assets/Logo0.svg">
         <h2>Авторизация</h2>
         <input v-model="name" type="text" placeholder="Логин">
-        <input v-model="pass" type="text" placeholder="Пароль">
+        <input v-model="pass" type="password" placeholder="Пароль">
         <button type="button" class="blue-btn" style="margin-top: 32px" @click="login">Войти</button>
       </div>
     </div>
