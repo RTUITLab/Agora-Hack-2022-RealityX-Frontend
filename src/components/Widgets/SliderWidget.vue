@@ -29,7 +29,7 @@ export default class SliderWidget extends Vue {
 
       this.$forceUpdate()
       this.slideIndex[this.data.id] = 1
-      this.showSlides(1, this.data.id)
+      setTimeout(() => (this.showSlides(1, this.data.id)), 100)
     })
   }
 
