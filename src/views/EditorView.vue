@@ -81,8 +81,8 @@ export default class EditorView extends Vue {
       this.update()
     })
 
-    this.$root.$on('build', () => {
-      this.$store.dispatch(SAVE_PROJECT, { jsonData: {}, template: this.buildTemplate() })
+    this.$root.$on('build', async () => {
+      await this.$store.dispatch(SAVE_PROJECT, { jsonData: {}, template: this.buildTemplate() })
       console.log(this.$store.getters[GET_PREVIEW_URL])
       window.open(this.$store.getters[GET_PREVIEW_URL], '_blank')!.focus()
     })
