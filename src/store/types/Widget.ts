@@ -26,11 +26,11 @@ export default interface IWidget {
   template: string
 }
 
-export function staticForPage () {
+export function staticForPage (font: string) {
   return `
   <style>
   * {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: ${font}, sans-serif;
     color: #19171D;
   }
 
@@ -52,7 +52,7 @@ export function staticForPage () {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: ${font}, sans-serif;
   }
 
   input[type=text], input[type=password], textarea {

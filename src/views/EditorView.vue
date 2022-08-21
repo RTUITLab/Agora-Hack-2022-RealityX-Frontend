@@ -103,7 +103,8 @@ export default class EditorView extends Vue {
   }
 
   buildTemplate () {
-    const staticContent = staticForPage() +
+    console.log(this.project.style)
+    const staticContent = staticForPage(this.project.style.font) +
       staticHeaderTemplate() +
       staticFooterTemplate() +
       staticTextTemplate() +

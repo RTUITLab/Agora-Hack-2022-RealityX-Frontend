@@ -9,6 +9,7 @@ export interface IProjectSettings {
 }
 
 export interface IProjectStyle {
+  font: string
   blockGap: string,
   backgroundColor: string,
   headerColor: string,
@@ -30,6 +31,7 @@ export function createProject (title: string, description: string, id: string): 
       description: description
     },
     style: {
+      font: "'Segoe UI'",
       blockGap: '20',
       backgroundColor: '#F6F9FB',
       headerColor: '#F6F9FB',
@@ -42,7 +44,6 @@ export function createProject (title: string, description: string, id: string): 
 
 export function generatePage (statics: string, content: string, project: IProject): string {
   const scripts = project.links.map((link) => (link.url)).join('\n')
-  console.log(scripts)
   return `
   <!DOCTYPE html>
   <html lang="ru">

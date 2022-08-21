@@ -30,6 +30,12 @@
       <input type="checkbox" id="styling">
       <ul>
         <li class="input">
+          <label>Шрифт
+            <br>
+            <input type="text" v-model="data.style.font" @change="(e) => saveSettings('', e)">
+          </label>
+        </li>
+        <li class="input">
           <label>Отступ между блоками
             <br>
             <input type="text" v-model="data.style.blockGap" @change="(e) => saveSettings('', e)">
