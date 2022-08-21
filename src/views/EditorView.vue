@@ -18,7 +18,7 @@ import EditorHeader from '@/components/Editor/EditorHeader.vue'
 import EditorWorkspace from '@/components/Editor/EditorWorkspace.vue'
 import { createProject, IProject } from '@/store/types/Project'
 import IWidget, { WidgetTypes } from '@/store/types/Widget'
-import { createDefaultText } from '@/store/types/TextWidget'
+import { createDefaultText, staticTextTemplate, textToTemplate } from '@/store/types/TextWidget'
 import { createDefaultImage } from '@/store/types/ImageWidget'
 import { createDefaultGallery } from '@/store/types/GalleryWidget'
 import { createDefaultCards } from '@/store/types/CardsWidget'
@@ -79,7 +79,7 @@ export default class EditorView extends Vue {
     })
 
     this.$root.$on('build', () => {
-      const staticContent = staticHeaderTemplate() + staticFooterTemplate()
+      const staticContent = staticHeaderTemplate() + staticFooterTemplate() + staticTextTemplate()
 
       const body = this.project.widgets.map((widget) => {
         switch (widget.type) {
@@ -87,6 +87,8 @@ export default class EditorView extends Vue {
             return headerToTemplate(widget)
           case WidgetTypes.FOOTER:
             return footerToTemplate(widget)
+          case WidgetTypes.TEXT:
+            return textToTemplate(widget)
           default:
             return ''
         }
