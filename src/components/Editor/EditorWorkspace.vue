@@ -2,12 +2,15 @@
   <div class="workspace">
     <header-widget :input-data="data[0]"></header-widget>
 
-    <component
-      :is="componentName(item.type)"
-      v-for="item in data.slice(1, data.length - 1)"
+    <widget-wrapper
+      :component="componentName(item.type)"
+      v-for="(item, i) in data.slice(1, data.length - 1)"
       :key="item.id"
       :input-data="item"
-    ></component>
+      @edit="() => edit(item.id)"
+      @up="() => swapItems(i + 1, i)"
+      @down="() => swapItems(i + 1, i + 2)"
+    ></widget-wrapper>
 
     <button class="add black-btn" @click="showAddModal = true">Добавить блок</button>
     <add-modal v-if="showAddModal" @close="showAddModal = false"></add-modal>
@@ -27,9 +30,10 @@ import ImageWidget from '@/components/Widgets/ImageWidget.vue'
 import GalleryWidget from '@/components/Widgets/GalleryWidget.vue'
 import CardsWidget from '@/components/Widgets/CardsWidget.vue'
 import SliderWidget from '@/components/Widgets/SliderWidget.vue'
+import WidgetWrapper from '@/components/WidgetWrapper.vue'
 
 @Component({
-  components: { TextWidget, ImageWidget, GalleryWidget, CardsWidget, AddModal, FooterWidget, HeaderWidget }
+  components: { WidgetWrapper, TextWidget, ImageWidget, GalleryWidget, CardsWidget, AddModal, FooterWidget, HeaderWidget }
 })
 export default class EditorWorkspace extends Vue {
   @Prop()
@@ -57,6 +61,20 @@ export default class EditorWorkspace extends Vue {
       case WidgetTypes.SLIDER:
         return SliderWidget
     }
+  }
+
+  swapItems (currIndex: number, targetIndex: number) {
+    if (targetIndex > 0 && targetIndex < this.data.length - 1) {
+      const temp = this.data[currIndex]
+      this.data[currIndex] = this.data[targetIndex]
+      this.data[targetIndex] = temp
+
+      this.$root.$emit('update-all', this.data)
+    }
+  }
+
+  edit (id: string) {
+    document.getElementById('change_' + id)!.click()
   }
 }
 </script>

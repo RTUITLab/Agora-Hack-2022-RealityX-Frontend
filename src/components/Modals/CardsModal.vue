@@ -62,6 +62,8 @@
           @remove="() => removeItem(i)"
         ></sequence-controller>
       </div>
+
+      <button class="black-btn add" @click="addCard">Добавить</button>
     </template>
 
     <template slot="footer">
@@ -73,7 +75,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import BaseModal from '@/components/Modals/BaseModal.vue'
-import { ICard, ICardsWidget } from '@/store/types/CardsWidget'
+import { createDefaultCard, ICard, ICardsWidget } from '@/store/types/CardsWidget'
 import ImageSkeleton from '@/components/ImageSkeleton.vue'
 import SequenceController from '@/components/Forms/SequenceController.vue'
 
@@ -116,10 +118,19 @@ export default class CardsModal extends Vue {
       this.$forceUpdate()
     }
   }
+
+  addCard () {
+    this.cards.push(createDefaultCard())
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.add {
+  width: max-content;
+  padding: 12px 14px;
+}
+
 .card {
   margin-bottom: 16px;
 

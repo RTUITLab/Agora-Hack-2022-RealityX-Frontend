@@ -1,6 +1,7 @@
 <template>
   <div class="sc-container">
-    <img src="../../assets/Upload.svg" @click="$emit('add')">
+    <img v-if="edit" src="../../assets/Edit.svg" @click="$emit('add')">
+    <img v-else src="../../assets/Upload.svg" @click="$emit('add')">
     <img src="../../assets/Arrow_up.svg" @click="$emit('up')">
     <img src="../../assets/Arrow_down.svg" @click="$emit('down')">
     <img src="../../assets/Remove.svg" @click="$emit('remove')">
@@ -8,10 +9,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class SequenceController extends Vue {
+  @Prop({
+    default: false
+  })
+  edit?: boolean
 }
 </script>
 

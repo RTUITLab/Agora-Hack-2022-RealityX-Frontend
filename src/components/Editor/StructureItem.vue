@@ -2,7 +2,7 @@
   <div class="structure-item">
     <img :src="icon">
     <p>{{title}}</p>
-    <button class="link" @click="showModal = true">Изменить</button>
+    <button class="link" @click="showModal = true" :id="'change_' + data.id">Изменить</button>
     <component :is="component" v-if="showModal" @close="showModal = false" :input-data="data"></component>
   </div>
 </template>

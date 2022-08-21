@@ -41,6 +41,12 @@ export default class EditorView extends Vue {
       this.$forceUpdate()
     })
 
+    this.$root.$on('update-all', (e: Array<IWidget>) => {
+      this.project.widgets = e
+      this.project = JSON.parse(JSON.stringify(this.project))
+      this.$forceUpdate()
+    })
+
     this.$root.$on('add', (e: WidgetTypes) => {
       switch (e) {
         case WidgetTypes.TEXT:
