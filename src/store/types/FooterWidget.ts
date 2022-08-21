@@ -22,7 +22,7 @@ export function createDefaultFooter (): IFooterWidget {
       height: 120,
       marginTop: 0,
       text: 'Собственный подвал',
-      textColor: '#505050',
+      textColor: '#FFFFFFB2',
       background: '#1F223B'
     },
     template: ''
